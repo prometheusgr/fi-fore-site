@@ -1,8 +1,8 @@
-version: 0.5.2
+version: 0.5.4
 files:
-  - url: fi-fore-0.5.2-arm64.dmg
-    sha512: smZpXtM/TTIGwWChdFQJIBDRuoWaCwzhE4drwmKaW30Uvu/vxlrBqNcSM3nG0eB1H4oT05cKe470kF/gUASYjw==
-    size: 120928034
-path: fi-fore-0.5.2-arm64.dmg
-sha512: smZpXtM/TTIGwWChdFQJIBDRuoWaCwzhE4drwmKaW30Uvu/vxlrBqNcSM3nG0eB1H4oT05cKe470kF/gUASYjw==
-releaseDate: '2026-02-25T00:31:10.676Z'
+  - url: fi-fore-0.5.4-arm64.dmg
+    sha512: AD5kUC+AWQpqzQQrc40sCqg4pcUhPlZz+sh1l3F4ILnHaRKXyg5ZsMYoAD7Acsw0Zzz6lEq730fzMnnI4tbWcw==
+    size: 120923034
+path: fi-fore-0.5.4-arm64.dmg
+sha512: AD5kUC+AWQpqzQQrc40sCqg4pcUhPlZz+sh1l3F4ILnHaRKXyg5ZsMYoAD7Acsw0Zzz6lEq730fzMnnI4tbWcw==
+releaseDate: '2026-02-25T03:12:48.153Z'
