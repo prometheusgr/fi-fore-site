@@ -31,7 +31,7 @@
   <nav><a href="/fi-fore-site/">← Home</a> | <a href="/fi-fore-site/changelog.html">Changelog</a></nav>
 
   <script>
-    const BASE = 'https://prometheusgr.github.io/fi-fore-site/releases/';
+    const MANIFEST = 'https://prometheusgr.github.io/fi-fore-site/releases/latest.json';
     const PLATFORM_MAP = [
       { ext: '.exe',      icon: '🪟', label: 'Windows', sub: 'Installer (.exe)' },
       { ext: '.dmg',      icon: '🍎', label: 'macOS',   sub: 'Disk image (.dmg)' },
@@ -42,7 +42,7 @@
       return bytes ? (bytes / 1024 / 1024).toFixed(1) + ' MB' : '';
     }
 
-    fetch(BASE + 'latest.json')
+    fetch(MANIFEST)
       .then(r => { if (!r.ok) throw new Error(); return r.json(); })
       .then(release => {
         document.getElementById('version').textContent =
@@ -55,7 +55,7 @@
           if (!asset) return;
           const a = document.createElement('a');
           a.className = 'dl-btn';
-          a.href = BASE + asset.name;
+          a.href = asset.url;
           a.innerHTML =
             '<span class="icon">' + icon + '</span>' +
             '<span><span class="label">' + label + '</span><br><small>' + sub + '</small></span>' +
