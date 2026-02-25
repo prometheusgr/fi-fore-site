@@ -1,0 +1,11 @@
+{
+  "tag": "v0.5.3",
+  "publishedAt": "2026-02-25T00:31:12.253Z",
+  "assets": [
+    {
+      "name": "fi-fore-0.5.2.AppImage",
+      "size": 135893833,
+      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.5.3/fi-fore-0.5.2.AppImage"
+    }
+  ]
+}
