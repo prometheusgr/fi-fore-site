@@ -1,11 +1,22 @@
 {
+  "version": "0.5.2",
   "tag": "v0.5.3",
   "publishedAt": "2026-02-25T00:33:43.126Z",
   "assets": [
     {
       "name": "fi-fore Setup 0.5.2.exe",
       "size": 92831483,
-      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.5.3/fi-fore Setup 0.5.2.exe"
+      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.5.3/fi-fore%20Setup%200.5.2.exe"
+    },
+    {
+      "name": "fi-fore-0.5.2-arm64.dmg",
+      "size": 120928034,
+      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.5.3/fi-fore-0.5.2-arm64.dmg"
+    },
+    {
+      "name": "fi-fore-0.5.2.AppImage",
+      "size": 135893833,
+      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.5.3/fi-fore-0.5.2.AppImage"
     }
   ]
 }

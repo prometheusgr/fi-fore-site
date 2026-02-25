@@ -13,9 +13,20 @@
       display: flex; align-items: center; gap: 0.75rem;
       padding: 0.85rem 1.25rem; border: 1px solid #ddd; border-radius: 8px;
       text-decoration: none; color: #1a1a1a; background: #f9f9f9;
-      font-size: 0.95rem; transition: background 0.15s;
+      font-size: 0.95rem; transition: all 0.15s;
     }
     .dl-btn:hover { background: #eef; border-color: #99a; }
+    .dl-btn.recommended {
+      background: linear-gradient(135deg, #e3f2fd 0%, #e8f5e9 100%);
+      border: 2px solid #1e88e5;
+      box-shadow: 0 2px 8px rgba(30, 136, 229, 0.2);
+    }
+    .dl-btn.recommended .label::after {
+      content: " (Recommended)";
+      color: #1e88e5;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
     .dl-btn .icon { font-size: 1.5rem; }
     .dl-btn .label { font-weight: 600; }
     .dl-btn .size { color: #888; font-size: 0.85rem; margin-left: auto; }
@@ -33,13 +44,17 @@
   <script>
     const MANIFEST = 'https://prometheusgr.github.io/fi-fore-site/releases/latest.json';
     const PLATFORM_MAP = [
-      { ext: '.exe',      icon: '🪟', label: 'Windows', sub: 'Installer (.exe)' },
-      { ext: '.dmg',      icon: '🍎', label: 'macOS',   sub: 'Disk image (.dmg)' },
-      { ext: '.AppImage', icon: '🐧', label: 'Linux',   sub: 'AppImage' },
+      { ext: '.exe',      icon: '🪟', label: 'Windows', sub: 'Installer (.exe)', detect: () => /Win/.test(navigator.platform) },
+      { ext: '.dmg',      icon: '🍎', label: 'macOS',   sub: 'Disk image (.dmg)', detect: () => /Mac/.test(navigator.platform) },
+      { ext: '.AppImage', icon: '🐧', label: 'Linux',   sub: 'AppImage', detect: () => /Linux/.test(navigator.platform) },
     ];
 
     function fmtSize(bytes) {
       return bytes ? (bytes / 1024 / 1024).toFixed(1) + ' MB' : '';
+    }
+
+    function detectOS() {
+      return PLATFORM_MAP.find(p => p.detect()) || PLATFORM_MAP[0];
     }
 
     fetch(MANIFEST)
@@ -50,11 +65,25 @@
           new Date(release.publishedAt).toLocaleDateString();
 
         const buttons = document.getElementById('buttons');
-        PLATFORM_MAP.forEach(({ ext, icon, label, sub }) => {
+        const detectedOS = detectOS();
+        
+        // Sort platforms: detected OS first, then others
+        const sortedPlatforms = [...PLATFORM_MAP].sort((a, b) => {
+          if (a === detectedOS) return -1;
+          if (b === detectedOS) return 1;
+          return 0;
+        });
+
+        sortedPlatforms.forEach((platform) => {
+          const { ext, icon, label, sub } = platform;
           const asset = release.assets.find(a => a.name.endsWith(ext));
           if (!asset) return;
+          
           const a = document.createElement('a');
           a.className = 'dl-btn';
+          if (platform === detectedOS) {
+            a.className += ' recommended';
+          }
           a.href = asset.url;
           a.innerHTML =
             '<span class="icon">' + icon + '</span>' +
