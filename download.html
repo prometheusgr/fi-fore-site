@@ -19,7 +19,6 @@
     .dl-btn .icon { font-size: 1.5rem; }
     .dl-btn .label { font-weight: 600; }
     .dl-btn .size { color: #888; font-size: 0.85rem; margin-left: auto; }
-    .loading { color: #888; }
     .error { color: #c00; }
     nav { margin-top: 3rem; font-size: 0.9rem; }
     nav a { color: #555; }
@@ -28,59 +27,46 @@
 <body>
   <h1>Download fi-fore</h1>
   <p class="version" id="version">Fetching latest release…</p>
-
-  <div class="buttons" id="buttons">
-    <p class="loading">Loading download links…</p>
-  </div>
-
+  <div class="buttons" id="buttons"></div>
   <nav><a href="/fi-fore-site/">← Home</a> | <a href="/fi-fore-site/changelog.html">Changelog</a></nav>
 
   <script>
+    const BASE = 'https://prometheusgr.github.io/fi-fore-site/releases/';
     const PLATFORM_MAP = [
-      { ext: '.exe',      icon: '🪟', label: 'Windows',       sub: 'Installer (.exe)' },
-      { ext: '.dmg',      icon: '🍎', label: 'macOS',         sub: 'Disk image (.dmg)' },
-      { ext: '.AppImage', icon: '🐧', label: 'Linux',         sub: 'AppImage' },
+      { ext: '.exe',      icon: '🪟', label: 'Windows', sub: 'Installer (.exe)' },
+      { ext: '.dmg',      icon: '🍎', label: 'macOS',   sub: 'Disk image (.dmg)' },
+      { ext: '.AppImage', icon: '🐧', label: 'Linux',   sub: 'AppImage' },
     ];
 
     function fmtSize(bytes) {
-      if (!bytes) return '';
-      return (bytes / 1024 / 1024).toFixed(1) + ' MB';
+      return bytes ? (bytes / 1024 / 1024).toFixed(1) + ' MB' : '';
     }
 
-    fetch('https://api.github.com/repos/prometheusgr/fi-fore/releases/latest')
-      .then(r => {
-        if (!r.ok) throw new Error('GitHub API error');
-        return r.json();
-      })
+    fetch(BASE + 'latest.json')
+      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
       .then(release => {
         document.getElementById('version').textContent =
-          'Latest: ' + release.tag_name + ' — released ' +
-          new Date(release.published_at).toLocaleDateString();
+          'Latest: v' + release.version + ' — released ' +
+          new Date(release.publishedAt).toLocaleDateString();
 
         const buttons = document.getElementById('buttons');
-        buttons.innerHTML = '';
-
         PLATFORM_MAP.forEach(({ ext, icon, label, sub }) => {
           const asset = release.assets.find(a => a.name.endsWith(ext));
           if (!asset) return;
           const a = document.createElement('a');
           a.className = 'dl-btn';
-          a.href = asset.browser_download_url;
+          a.href = BASE + asset.name;
           a.innerHTML =
             '<span class="icon">' + icon + '</span>' +
             '<span><span class="label">' + label + '</span><br><small>' + sub + '</small></span>' +
             '<span class="size">' + fmtSize(asset.size) + '</span>';
           buttons.appendChild(a);
         });
-
-        if (!buttons.children.length) {
-          buttons.innerHTML = '<p class="error">No release assets found.</p>';
-        }
       })
       .catch(() => {
         document.getElementById('version').textContent = '';
         document.getElementById('buttons').innerHTML =
-          '<p class="error">Could not load release info. <a href="https://github.com/prometheusgr/fi-fore/releases/latest">View on GitHub</a>.</p>';
+          '<p class="error">Could not load release info. Check back soon.</p>';
       });
   </script>
 </body>
