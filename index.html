@@ -1,18 +1,578 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FI Fore Site</title>
-</head>
-<body>
-  <main>
-    <h1>FI Fore Site</h1>
-    <p>This is the homepage placeholder for the future GitHub Pages setup.</p>
-    <nav>
-      <a href="/download.html">Download</a> |
-      <a href="/changelog.html">Changelog</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fi-fore - Know Where Your Money Goes—Before It's Gone</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        line-height: 1.6;
+        color: #1a1a1a;
+      }
+
+      .nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #1e88e5 0%, #43a047 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-links a {
+        margin-left: 2rem;
+        text-decoration: none;
+        color: #555;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #1e88e5;
+      }
+
+      .hero {
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, #1e88e5 0%, #43a047 100%);
+        color: white;
+        padding: 6rem 2rem 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        transform: skewX(-15deg);
+        transform-origin: top;
+      }
+
+      .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .hero .subheadline {
+        font-size: 1.4rem;
+        max-width: 800px;
+        margin-bottom: 2.5rem;
+        opacity: 0.95;
+        line-height: 1.6;
+        font-weight: 300;
+      }
+
+      .brand-section {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .logo-container {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        flex-shrink: 0;
+      }
+
+      .logo-bg {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s ease;
+      }
+
+      .logo-container:hover .logo-bg {
+        transform: rotate(360deg);
+      }
+
+      .brand-name {
+        font-size: 4rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1;
+      }
+
+      .brand-tagline {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-top: 0.5rem;
+        font-weight: 400;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s;
+      }
+
+      .btn-primary {
+        background: white;
+        color: #1e88e5;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid white;
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .section {
+        padding: 5rem 2rem;
+      }
+
+      .section-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #1e88e5 0%, #43a047 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 1.2rem;
+        margin-bottom: 4rem;
+      }
+
+      .jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
+
+      .job-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        border-top: 4px solid transparent;
+        background-clip: padding-box;
+        position: relative;
+      }
+
+      .job-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(135deg, #1e88e5 0%, #43a047 100%);
+        border-radius: 12px 12px 0 0;
+      }
+
+      .job-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      }
+
+      .job-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: #1a1a1a;
+      }
+
+      .job-card p {
+        color: #555;
+        line-height: 1.8;
+      }
+
+      .features-section {
+        background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+        transition: transform 0.3s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        color: #1a1a1a;
+      }
+
+      .feature-card p {
+        color: #666;
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      .privacy-banner {
+        background: linear-gradient(135deg, #1e88e5 0%, #43a047 100%);
+        color: white;
+        text-align: center;
+        padding: 3rem 2rem;
+      }
+
+      .privacy-banner h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .privacy-banner p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+        opacity: 0.95;
+      }
+
+      footer {
+        background: #1a1a1a;
+        color: #999;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .brand-section {
+          flex-direction: column;
+          text-align: center;
+          gap: 1rem;
+        }
+
+        .logo-container {
+          width: 100px;
+          height: 100px;
+        }
+
+        .brand-name {
+          font-size: 3rem;
+        }
+
+        .brand-tagline {
+          font-size: 0.95rem;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero .subheadline {
+          font-size: 1.1rem;
+        }
+
+        .nav-links {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .nav-links a {
+          margin-left: 0;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .jobs-grid,
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-container">
+        <div class="nav-logo">fi-fore</div>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="download.html">Download</a>
+          <a href="changelog.html">Changelog</a>
+        </div>
+      </div>
     </nav>
-  </main>
-</body>
+
+    <section class="hero">
+      <div class="hero-container">
+        <div class="brand-section">
+          <div class="logo-container">
+            <img src="fi-fore_icon_1024x1024.png" alt="fi-fore logo" class="logo-bg">
+          </div>
+          <div>
+            <div class="brand-name">fi-fore</div>
+            <div class="brand-tagline">Financial Forecasting & Reconciliation</div>
+          </div>
+        </div>
+        <h1>Know Where Your Money Goes—Before It's Gone</h1>
+        <p class="subheadline">
+          When financial decisions loom and spreadsheets fail, fi-fore helps you
+          see the full picture: reconcile what happened, understand what's
+          happening, and plan what's next—all without sending your data to the
+          cloud.
+        </p>
+        <div class="cta-buttons">
+          <a href="download.html" class="btn btn-primary">Download Now</a>
+          <a href="#features" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-container">
+        <h2 class="section-title">Built for Real Financial Moments</h2>
+        <p class="section-subtitle">
+          fi-fore helps you tackle the jobs that matter most
+        </p>
+
+        <div class="jobs-grid">
+          <div class="job-card">
+            <h3>When you're paid and need to know if you're on track...</h3>
+            <p>
+              See your actual spending vs your forecast in real-time. Auto-match
+              transactions to your budget, spot variances instantly, and stay
+              ahead without manual calculations.
+            </p>
+          </div>
+
+          <div class="job-card">
+            <h3>When planning a big purchase or life change...</h3>
+            <p>
+              Run scenarios to see the impact before you commit. Test "what-if"
+              situations with multiple budget scenarios, visualize cash flow 12+
+              months out, and make confident decisions.
+            </p>
+          </div>
+
+          <div class="job-card">
+            <h3>
+              When statements arrive and reconciliation feels like homework...
+            </h3>
+            <p>
+              Match hundreds of transactions in seconds, not hours. AI-powered
+              matching links forecasts to actuals automatically, while
+              hierarchical categories keep everything organized.
+            </p>
+          </div>
+
+          <div class="job-card">
+            <h3>
+              When you need to understand where the money actually goes...
+            </h3>
+            <p>
+              Drill into spending patterns across days, months, and years. Track
+              budget rules (like 50/30/20), analyze credit spending separately,
+              and identify trends before they become problems.
+            </p>
+          </div>
+
+          <div class="job-card">
+            <h3>When organizing finances across multiple accounts...</h3>
+            <p>
+              See all your accounts—checking, credit, investments—in one view.
+              Project balances forward, track statement reconciliations, and
+              maintain a complete financial picture.
+            </p>
+          </div>
+
+          <div class="job-card">
+            <h3>When importing bank data and dreading duplicate cleanup...</h3>
+            <p>
+              Import CSV files with built-in duplicate detection. Preview, edit,
+              and validate transactions before import, with smart category
+              suggestions from your history.
+            </p>
+          </div>
+
+          <div class="job-card">
+            <h3>When privacy matters more than convenience...</h3>
+            <p>
+              Keep your financial data completely offline and local. No cloud
+              sync, no data sharing, no subscription—just a desktop app that
+              respects your privacy while delivering professional-grade
+              financial insights.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section features-section">
+      <div class="section-container">
+        <h2 class="section-title">Powerful Features</h2>
+        <p class="section-subtitle">
+          Everything you need for complete financial clarity
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Three Time Perspectives</h3>
+            <p>
+              <strong>Days:</strong> Today's dashboard with reconciliation<br />
+              <strong>Months:</strong> Historical trends and forecasts
+              unified<br />
+              <strong>Years:</strong> Long-term projections and scenarios
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Smart Reconciliation</h3>
+            <p>
+              Auto-match transactions to forecasts with confidence scoring and
+              hierarchical category support
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🔮</div>
+            <h3>Scenario Planning</h3>
+            <p>
+              Test budget changes and see 12-month impacts before making
+              decisions
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📁</div>
+            <h3>Hierarchical Categories</h3>
+            <p>
+              Organize spending your way with unlimited category nesting and
+              parent-child relationships
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Privacy First</h3>
+            <p>
+              Desktop-only, offline, local storage—your financial data never
+              leaves your computer
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">💾</div>
+            <h3>Data Safety</h3>
+            <p>
+              One-click backup and restore, plus automatic migration management
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy-banner">
+      <div class="section-container">
+        <h2>Your Data, Your Computer, Your Privacy</h2>
+        <p>
+          No cloud sync. No data sharing. No subscription. Just a desktop app
+          that respects your privacy while delivering professional-grade
+          financial insights.
+        </p>
+        <a href="download.html" class="btn btn-primary">Download fi-fore</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        &copy; 2026 fi-fore. Desktop financial planning that respects your
+        privacy.
+      </p>
+    </footer>
+  </body>
 </html>
