@@ -3,13 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Download - FI Fore Site</title>
+  <title>Download - fi-fore</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 700px; margin: 3rem auto; padding: 0 1rem; color: #1a1a1a; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+    .version { color: #666; margin-bottom: 2rem; font-size: 0.95rem; }
+    .buttons { display: flex; flex-direction: column; gap: 0.75rem; }
+    .dl-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.85rem 1.25rem; border: 1px solid #ddd; border-radius: 8px;
+      text-decoration: none; color: #1a1a1a; background: #f9f9f9;
+      font-size: 0.95rem; transition: background 0.15s;
+    }
+    .dl-btn:hover { background: #eef; border-color: #99a; }
+    .dl-btn .icon { font-size: 1.5rem; }
+    .dl-btn .label { font-weight: 600; }
+    .dl-btn .size { color: #888; font-size: 0.85rem; margin-left: auto; }
+    .loading { color: #888; }
+    .error { color: #c00; }
+    nav { margin-top: 3rem; font-size: 0.9rem; }
+    nav a { color: #555; }
+  </style>
 </head>
 <body>
-  <main>
-    <h1>Download</h1>
-    <p>Download links will be added here later.</p>
-    <p><a href="/index.html">Back to home</a></p>
-  </main>
+  <h1>Download fi-fore</h1>
+  <p class="version" id="version">Fetching latest release…</p>
+
+  <div class="buttons" id="buttons">
+    <p class="loading">Loading download links…</p>
+  </div>
+
+  <nav><a href="/fi-fore-site/">← Home</a> | <a href="/fi-fore-site/changelog.html">Changelog</a></nav>
+
+  <script>
+    const PLATFORM_MAP = [
+      { ext: '.exe',      icon: '🪟', label: 'Windows',       sub: 'Installer (.exe)' },
+      { ext: '.dmg',      icon: '🍎', label: 'macOS',         sub: 'Disk image (.dmg)' },
+      { ext: '.AppImage', icon: '🐧', label: 'Linux',         sub: 'AppImage' },
+    ];
+
+    function fmtSize(bytes) {
+      if (!bytes) return '';
+      return (bytes / 1024 / 1024).toFixed(1) + ' MB';
+    }
+
+    fetch('https://api.github.com/repos/prometheusgr/fi-fore/releases/latest')
+      .then(r => {
+        if (!r.ok) throw new Error('GitHub API error');
+        return r.json();
+      })
+      .then(release => {
+        document.getElementById('version').textContent =
+          'Latest: ' + release.tag_name + ' — released ' +
+          new Date(release.published_at).toLocaleDateString();
+
+        const buttons = document.getElementById('buttons');
+        buttons.innerHTML = '';
+
+        PLATFORM_MAP.forEach(({ ext, icon, label, sub }) => {
+          const asset = release.assets.find(a => a.name.endsWith(ext));
+          if (!asset) return;
+          const a = document.createElement('a');
+          a.className = 'dl-btn';
+          a.href = asset.browser_download_url;
+          a.innerHTML =
+            '<span class="icon">' + icon + '</span>' +
+            '<span><span class="label">' + label + '</span><br><small>' + sub + '</small></span>' +
+            '<span class="size">' + fmtSize(asset.size) + '</span>';
+          buttons.appendChild(a);
+        });
+
+        if (!buttons.children.length) {
+          buttons.innerHTML = '<p class="error">No release assets found.</p>';
+        }
+      })
+      .catch(() => {
+        document.getElementById('version').textContent = '';
+        document.getElementById('buttons').innerHTML =
+          '<p class="error">Could not load release info. <a href="https://github.com/prometheusgr/fi-fore/releases/latest">View on GitHub</a>.</p>';
+      });
+  </script>
 </body>
 </html>
