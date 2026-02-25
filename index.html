@@ -373,6 +373,8 @@
         }
       }
     </style>
+  <script data-goatcounter="https://fi-fore.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
   </head>
   <body>
     <nav class="nav">
@@ -574,5 +576,21 @@
         privacy.
       </p>
     </footer>
+  <script>
+    document.querySelectorAll('a[href="download.html"]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (window.goatcounter && window.goatcounter.count) {
+          window.goatcounter.count({ path: 'click-cta-download', title: 'CTA: Download Button', event: true });
+        }
+      });
+    });
+    document.querySelectorAll('a[href^="https://"]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (window.goatcounter && window.goatcounter.count) {
+          window.goatcounter.count({ path: 'outbound-' + new URL(this.href).hostname, title: 'Outbound: ' + this.href, event: true });
+        }
+      });
+    });
+  </script>
   </body>
 </html>

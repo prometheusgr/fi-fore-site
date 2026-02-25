@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Download - fi-fore</title>
+  <script data-goatcounter="https://fi-fore.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
   <style>
     body { font-family: system-ui, sans-serif; max-width: 700px; margin: 3rem auto; padding: 0 1rem; color: #1a1a1a; }
     h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
@@ -89,6 +91,15 @@
             '<span class="icon">' + icon + '</span>' +
             '<span><span class="label">' + label + '</span><br><small>' + sub + '</small></span>' +
             '<span class="size">' + fmtSize(asset.size) + '</span>';
+          a.addEventListener('click', function() {
+            if (window.goatcounter && window.goatcounter.count) {
+              window.goatcounter.count({
+                path: 'download-' + label.toLowerCase(),
+                title: 'Download: ' + label,
+                event: true
+              });
+            }
+          });
           buttons.appendChild(a);
         });
       })
@@ -97,6 +108,16 @@
         document.getElementById('buttons').innerHTML =
           '<p class="error">Could not load release info. Check back soon.</p>';
       });
+  </script>
+  <script>
+    var homeLink = document.querySelector('nav a[href="/fi-fore-site/"]');
+    if (homeLink) {
+      homeLink.addEventListener('click', function() {
+        if (window.goatcounter && window.goatcounter.count) {
+          window.goatcounter.count({ path: 'click-nav-home', title: 'Nav: Back to Home', event: true });
+        }
+      });
+    }
   </script>
 </body>
 </html>
