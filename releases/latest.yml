@@ -1,8 +1,8 @@
-version: 0.5.4
+version: 0.6.0
 files:
-  - url: fi-fore Setup 0.5.4.exe
-    sha512: e00L6r+N7F/P7VA0xruzXC69yxVxFlwHPKFMuGbw+TIDhUyE3+V5BOdAXZ9zsNMV6uGP4f29UUtKhde14HLsIw==
-    size: 92830819
-path: fi-fore Setup 0.5.4.exe
-sha512: e00L6r+N7F/P7VA0xruzXC69yxVxFlwHPKFMuGbw+TIDhUyE3+V5BOdAXZ9zsNMV6uGP4f29UUtKhde14HLsIw==
-releaseDate: '2026-02-25T03:15:01.205Z'
+  - url: fi-fore-0.6.0.exe
+    sha512: xRdwQLzc+lVIAFYsCdNy/PyLWoYfEnBS7Aruh48APoNATz/OpgjsRF9w+VfMTc6lPzN5Ms6v2COdFahKE+JLsg==
+    size: 118432986
+path: fi-fore-0.6.0.exe
+sha512: xRdwQLzc+lVIAFYsCdNy/PyLWoYfEnBS7Aruh48APoNATz/OpgjsRF9w+VfMTc6lPzN5Ms6v2COdFahKE+JLsg==
+releaseDate: '2026-04-27T04:11:03.371Z'
