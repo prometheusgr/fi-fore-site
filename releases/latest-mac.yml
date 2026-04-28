@@ -1,8 +1,8 @@
-version: 0.6.0
+version: 0.6.2
 files:
-  - url: fi-fore-0.6.0.dmg
-    sha512: gO7eoLpx1HsfiLE2GZTYpF6lreET4VpJpcZdXsQPXOzbThoYUN9CupaOc0RvWCoQfUIMRLf/Nf8TlueQZg2AaA==
-    size: 145619573
-path: fi-fore-0.6.0.dmg
-sha512: gO7eoLpx1HsfiLE2GZTYpF6lreET4VpJpcZdXsQPXOzbThoYUN9CupaOc0RvWCoQfUIMRLf/Nf8TlueQZg2AaA==
-releaseDate: '2026-04-27T15:47:53.567Z'
+  - url: fi-fore-0.6.2.dmg
+    sha512: BZKIUv+fW4Z787snM7AA6/AWV1WJVoQye4VqblRzN++GsUSnxGdbJb1l0ZIGQUGEOfK29IZ4SoWWe0jCwIC9Kg==
+    size: 145618859
+path: fi-fore-0.6.2.dmg
+sha512: BZKIUv+fW4Z787snM7AA6/AWV1WJVoQye4VqblRzN++GsUSnxGdbJb1l0ZIGQUGEOfK29IZ4SoWWe0jCwIC9Kg==
+releaseDate: '2026-04-28T14:27:39.024Z'

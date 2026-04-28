@@ -1,8 +1,8 @@
-version: 0.6.0
+version: 0.6.2
 files:
-  - url: fi-fore-0.6.0.exe
-    sha512: 1+pdthjplDGqNk3P+M0+REgUOalOa2nKaZAz4haTc6Eum2rM6dkZtJUXVV9uz61SUDSId9VD3uqB+SHIjN/OVg==
-    size: 118433632
-path: fi-fore-0.6.0.exe
-sha512: 1+pdthjplDGqNk3P+M0+REgUOalOa2nKaZAz4haTc6Eum2rM6dkZtJUXVV9uz61SUDSId9VD3uqB+SHIjN/OVg==
-releaseDate: '2026-04-27T15:47:56.921Z'
+  - url: fi-fore-0.6.2.exe
+    sha512: /WFbG7C92tvH8rS7b8QBjqD8WGwnif58vN3OQGBPo/dFc7vigCRLoWN/NH7JImXpAh2BLVDJFxpdvw9J+P5ZTg==
+    size: 118433791
+path: fi-fore-0.6.2.exe
+sha512: /WFbG7C92tvH8rS7b8QBjqD8WGwnif58vN3OQGBPo/dFc7vigCRLoWN/NH7JImXpAh2BLVDJFxpdvw9J+P5ZTg==
+releaseDate: '2026-04-28T14:29:40.017Z'
