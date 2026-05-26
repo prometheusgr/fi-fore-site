@@ -1,24 +1,24 @@
 {
-  "version": "0.6.2",
-  "tag": "v0.6.2",
-  "publishedAt": "2026-04-28T14:30:26.676Z",
+  "version": "0.6.4",
+  "tag": "v0.6.4",
+  "publishedAt": "2026-05-26T02:10:08.721Z",
   "assets": [
     {
-      "name": "fi-fore-0.6.2.AppImage",
-      "size": 156148239,
-      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.6.2/fi-fore-0.6.2.AppImage",
+      "name": "fi-fore-0.6.4.AppImage",
+      "size": 156189169,
+      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.6.4/fi-fore-0.6.4.AppImage",
       "platform": "linux"
     },
     {
-      "name": "fi-fore-0.6.2.dmg",
-      "size": 145618859,
-      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.6.2/fi-fore-0.6.2.dmg",
+      "name": "fi-fore-0.6.4.dmg",
+      "size": 145643826,
+      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.6.4/fi-fore-0.6.4.dmg",
       "platform": "macos"
     },
     {
-      "name": "fi-fore-0.6.2.exe",
-      "size": 118433791,
-      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.6.2/fi-fore-0.6.2.exe",
+      "name": "fi-fore-0.6.4.exe",
+      "size": 118458658,
+      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.6.4/fi-fore-0.6.4.exe",
       "platform": "windows"
     }
   ]
