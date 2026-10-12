@@ -1,9 +1,9 @@
-version: 0.6.4
+version: 0.7.4
 files:
-  - url: fi-fore-0.6.4.AppImage
-    sha512: V9/ZK9yduW2Qn8iPCg2e3jxlkbUw6swbyzpEb4nJZIMzwyll0zZQRe34k31tjlIFQU1rhj1OQV6UwdDD+FMyzA==
-    size: 156189169
-    blockMapSize: 164357
-path: fi-fore-0.6.4.AppImage
-sha512: V9/ZK9yduW2Qn8iPCg2e3jxlkbUw6swbyzpEb4nJZIMzwyll0zZQRe34k31tjlIFQU1rhj1OQV6UwdDD+FMyzA==
-releaseDate: '2026-05-24T00:50:11.727Z'
+  - url: fi-fore-0.7.4.AppImage
+    sha512: VIAnfeD5d3e7faJfem/qiLuJ2XgD3/KqQaDLmnqFtwiGaqTjM6vkpdW3fKfdUqCGuV53zp0z04rXNiTHipzFCA==
+    size: 125621069
+    blockMapSize: 131937
+path: fi-fore-0.7.4.AppImage
+sha512: VIAnfeD5d3e7faJfem/qiLuJ2XgD3/KqQaDLmnqFtwiGaqTjM6vkpdW3fKfdUqCGuV53zp0z04rXNiTHipzFCA==
+releaseDate: '2026-10-12T19:14:11.880Z'
