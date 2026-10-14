@@ -1,0 +1,44 @@
+{
+  "releases": [
+    {
+      "version": "0.7.5",
+      "date": "2026-10-13",
+      "notes": "### Fixed\n\n- **Bank browser downloads work again.** Exporting a CSV or OFX from your bank shows the file name and continues to account selection and import. A cancelled or interrupted download shows an error naming the file, and downloads you don't import are cleaned up.\n- **Import freshness** reads \"0d ago\" right after an import instead of \"Unknown\".\n- **Dates show the right local day and month.** \"Last imported\" and \"last synced\" use your local day (\"last synced\" no longer shows \"Invalid Date\"). October no longer appears as September in Monthly Detail, the Credit view and the Scenarios item list. Month drill-downs on the dashboard and category statistics cover the month you clicked. \"Today / N days ago\" stays correct across daylight saving changes.\n- **Imported categories count toward 50/30/20.** Categories created by an import are placed in Needs, Wants or Savings when fi-fore recognizes the name (Groceries in Needs, Restaurants in Wants, Retirement Contributions in Savings). Names it doesn't recognize stay unassigned.\n- **Import page:** reloading the page no longer breaks Detect Columns. The intro only mentions what your version offers (the bank browser is desktop-only). The Transactions / Import / Forecast bar no longer floats over cards while you scroll. Text columns are left-aligned and amounts right-aligned in the mapping and preview tables, and a column's alignment follows its role.\n- **Reloading any page** now gives a working page, not a bare fragment.\n- The Days page loads without errors."
+    },
+    {
+      "version": "0.7.4",
+      "date": "2026-10-12",
+      "notes": "### ⚠️ Breaking: new database format\n\nfi-fore now stores your data in SQLite instead of DuckDB. **Data from 0.6.x is not carried over:** after upgrading, fi-fore starts with an empty database, and backups made by 0.6.x (`.duckdb` files) can't be restored. Re-import your bank statements after upgrading.\n\n### New\n\n- **Self-hosted server.** Run fi-fore on your own server for several households, each with its own separate data. Includes sign-in, a first-run setup page that creates the first household, and a Docker image for amd64 and arm64.\n- **Home Assistant add-on** that runs the same server.\n- **Backup and restore on the server.** A restore takes effect right away, with no restart. Automatic backups are kept separately for each household.\n- **Live Connections page** shows each linked bank's sync status and lets you disconnect it.\n\n### Changed\n\n- The database is now SQLite: faster, and installs cleanly on more machines.\n- The importer is built into the app instead of shipped as a separate package.\n\n### Fixed\n\n- A fresh install no longer fails on leftover files from the old database format."
+    },
+    {
+      "version": "0.6.4",
+      "date": "2026-05-23",
+      "notes": "### New\n\n- **Import a whole folder** of bank CSV files at once.\n- Bank CSVs that begin with extra header text are cleaned up automatically before import.\n- Each account's import status shows how fresh its data is, including an \"Unknown\" state when fi-fore can't tell.\n\n### Changed\n\n- The desktop window runs in a tighter security sandbox.\n\n### Fixed\n\n- Fixed an import error when marking a file as imported."
+    },
+    {
+      "version": "0.6.2",
+      "date": "2026-04-28",
+      "notes": "- Maintenance release. No app changes."
+    },
+    {
+      "version": "0.6.1",
+      "date": "2026-04-27",
+      "notes": "- Clearer feedback while an update installs, and a retry if the install fails."
+    },
+    {
+      "version": "0.6.0",
+      "date": "2026-04-26",
+      "notes": "### New\n\n- **Bank integration.** Browse your bank inside fi-fore, map its CSV columns once, and import statements with their balances.\n- **Guided mode.** A getting-started flow that opens up each page as you finish setting up the one before it.\n- **Cash status on the Days page.** Shows money in, money out and how long your cash lasts, plus how up to date each account is.\n- **Change a category everywhere at once.** Recategorize every transaction with the same description in one step.\n- Reconciliation can match transactions automatically and lets you create a category without leaving the page.\n- **Database recovery** if your data file is damaged, and a safer automatic backup when fi-fore closes.\n\n### Changed\n\n- Income and Expense categories always exist, so new transactions always have somewhere to go.\n\n### Fixed\n\n- The main window refreshes after you close the import window."
+    },
+    {
+      "version": "0.5.4",
+      "date": "2026-02-24",
+      "notes": "- Release pipeline improvements. No app changes."
+    },
+    {
+      "version": "0.5.3",
+      "date": "2026-02-24",
+      "notes": "### New\n\n- **Installers** for Windows, macOS and Linux.\n- **Automatic updates.** fi-fore tells you when a new version is ready and installs it for you.\n- **Backup and restore** your data from the Admin menu.\n- Sub-page navigation to move between related pages."
+    }
+  ]
+}

@@ -1,9 +1,19 @@
-version: 0.7.4
+version: 0.7.5
 files:
-  - url: fi-fore-0.7.4.AppImage
-    sha512: VIAnfeD5d3e7faJfem/qiLuJ2XgD3/KqQaDLmnqFtwiGaqTjM6vkpdW3fKfdUqCGuV53zp0z04rXNiTHipzFCA==
-    size: 125621069
-    blockMapSize: 131937
-path: fi-fore-0.7.4.AppImage
-sha512: VIAnfeD5d3e7faJfem/qiLuJ2XgD3/KqQaDLmnqFtwiGaqTjM6vkpdW3fKfdUqCGuV53zp0z04rXNiTHipzFCA==
-releaseDate: '2026-10-12T19:14:11.880Z'
+  - url: fi-fore-0.7.5.AppImage
+    sha512: VU638QULq0JyWGPmvTSRn4Z6bopNVDhDuEBgmg0tAhKn7eDrkAtsiMoI8rIFjrbpBMkD6xBA8MFqe8UIWZpICQ==
+    size: 125625282
+    blockMapSize: 132054
+path: fi-fore-0.7.5.AppImage
+sha512: VU638QULq0JyWGPmvTSRn4Z6bopNVDhDuEBgmg0tAhKn7eDrkAtsiMoI8rIFjrbpBMkD6xBA8MFqe8UIWZpICQ==
+releaseNotes: |
+  ### Fixed
+
+  - **Bank browser downloads work again.** Exporting a CSV or OFX from your bank shows the file name and continues to account selection and import. A cancelled or interrupted download shows an error naming the file, and downloads you don't import are cleaned up.
+  - **Import freshness** reads "0d ago" right after an import instead of "Unknown".
+  - **Dates show the right local day and month.** "Last imported" and "last synced" use your local day ("last synced" no longer shows "Invalid Date"). October no longer appears as September in Monthly Detail, the Credit view and the Scenarios item list. Month drill-downs on the dashboard and category statistics cover the month you clicked. "Today / N days ago" stays correct across daylight saving changes.
+  - **Imported categories count toward 50/30/20.** Categories created by an import are placed in Needs, Wants or Savings when fi-fore recognizes the name (Groceries in Needs, Restaurants in Wants, Retirement Contributions in Savings). Names it doesn't recognize stay unassigned.
+  - **Import page:** reloading the page no longer breaks Detect Columns. The intro only mentions what your version offers (the bank browser is desktop-only). The Transactions / Import / Forecast bar no longer floats over cards while you scroll. Text columns are left-aligned and amounts right-aligned in the mapping and preview tables, and a column's alignment follows its role.
+  - **Reloading any page** now gives a working page, not a bare fragment.
+  - The Days page loads without errors.
+releaseDate: '2026-10-14T03:59:17.018Z'
