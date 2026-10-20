@@ -1,33 +1,13 @@
-version: 0.8.0
+version: 0.8.1
 files:
-  - url: fi-fore-0.8.0.exe
-    sha512: mHIA0MEU/bIcVaXFj0bCRqDAss3fhktF2+x5kiDDQ0RvqmHyIJ/xTbrXx/WrX6dV32yZ9r10k9+nkodxP/Ea4w==
-    size: 102054999
-path: fi-fore-0.8.0.exe
-sha512: mHIA0MEU/bIcVaXFj0bCRqDAss3fhktF2+x5kiDDQ0RvqmHyIJ/xTbrXx/WrX6dV32yZ9r10k9+nkodxP/Ea4w==
+  - url: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.8.1/fi-fore-0.8.1.exe
+    sha512: W5gHlbnI9jXwmmnHUUkw1bySGOVROXEEn+RU2eWs88fo3NHZCvBo3OsttRfnvKFvxlVDErr86fqP1JJB7HnVbQ==
+    size: 102055158
+path: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.8.1/fi-fore-0.8.1.exe
+sha512: W5gHlbnI9jXwmmnHUUkw1bySGOVROXEEn+RU2eWs88fo3NHZCvBo3OsttRfnvKFvxlVDErr86fqP1JJB7HnVbQ==
 releaseNotes: |
-  ### New
-
-  - **One Categories section** on the Days and Reconciliation pages replaces the Category Breakdown and Category Reconciliation. Each category shows what you spent, the plan, how far over or under you are, how many charges, and how many items still need you. Expand a category for its sub-categories and items (open, matched, in budget, reviewed) with Match, Review and Create Forecast on each. On a phone, each category fits on two lines.
-  - **Create Forecast on any transaction**, including ones that are suggested or already matched to the wrong forecast. If the match can't be made, nothing is left half-done.
-  - **Undo a mistaken review** in Needs Review. Reviewed items leave Needs Review and match suggestions.
-  - **A shorter first import.** Create an account right on the Import page, and a single account is preselected. Column mapping collapses to one line when the columns are recognized, including named Debit and Credit columns. The preview says what will change ("812 new transactions across 5 accounts, 36 new categories, 1 duplicate skipped"), and a file with nothing new says so.
-  - **Transactions stored without an account** are assigned to the file's account when you re-import the same period, instead of being added twice. "Import all as new instead" keeps the old behavior.
-
-  ### Changed
-
-  - Live Connections no longer mentions Teller or shows the administrator notice, and the empty state offers Import CSV. The Sync now button is gone until live bank sync returns in a later release.
-  - Category names are now unique across the whole category list. If you have two categories with the same name, the upgrade renames the later one.
-  - Month Summary totals and Cash Status skip forecasts you delayed or cancelled, and a delayed forecast counts in the month it moved to.
-  - Projected account balances count each scenario forecast once, on its own account type.
-
   ### Fixed
 
-  - **Import no longer drops real transactions.** The same charge on two accounts imports on both. Two identical charges on one day aren't merged into one when one is already stored. Renaming an account, or a case or spacing difference in its name, no longer causes duplicates.
-  - A failed import keeps your file so Retry works, and it no longer changes the account's last imported date or balance.
-  - The desktop app opens its own window even when another program is using port 3000.
-  - Deleting a forecast or a transaction also removes its matches, delays and cancellations, so a new forecast no longer inherits an old match.
-  - A delayed forecast keeps its account type, and you can't delay one from a month where it doesn't occur.
-  - Marking items reviewed reports the real count, reconciliation actions show readable messages when something fails, pages show the right title, and the Undo notice only appears after its reload succeeds.
-  - Reconciliation pages reject an invalid month in the address instead of showing it.
-releaseDate: '2026-10-19T04:19:55.693Z'
+  - **The header and navigation keep their look** when you move between pages. After clicking Months or Days, the page width, header border and nav buttons no longer fall back to unstyled.
+  - **In-app updates download.** The update banner's Download button now fetches the installer instead of failing with "status 404".
+releaseDate: '2026-10-20T02:51:42.035Z'
