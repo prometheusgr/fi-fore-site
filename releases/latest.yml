@@ -1,13 +1,37 @@
-version: 0.8.1
+version: 0.8.2
 files:
-  - url: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.8.1/fi-fore-0.8.1.exe
-    sha512: W5gHlbnI9jXwmmnHUUkw1bySGOVROXEEn+RU2eWs88fo3NHZCvBo3OsttRfnvKFvxlVDErr86fqP1JJB7HnVbQ==
-    size: 102055158
-path: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.8.1/fi-fore-0.8.1.exe
-sha512: W5gHlbnI9jXwmmnHUUkw1bySGOVROXEEn+RU2eWs88fo3NHZCvBo3OsttRfnvKFvxlVDErr86fqP1JJB7HnVbQ==
+  - url: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.8.2/fi-fore-0.8.2.exe
+    sha512: dj5HxYqTnFpqtOLSzbY1IRcaYs9uvOWJZW2RJxZCH/QmeEPvjG9XaC7tcbfZHFMirkeOhUREmyD1LAlp6xIlXQ==
+    size: 102090762
+path: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.8.2/fi-fore-0.8.2.exe
+sha512: dj5HxYqTnFpqtOLSzbY1IRcaYs9uvOWJZW2RJxZCH/QmeEPvjG9XaC7tcbfZHFMirkeOhUREmyD1LAlp6xIlXQ==
 releaseNotes: |
+  ### New
+
+  - **A new way around the app.** On a computer, a sidebar on the left holds Days, Month, Year, What-if and Setup, and folds down to icons. On a phone, a bar at the bottom holds Days, Month, Year and More. Scenarios is now called What-if.
+  - **Setup replaces the Admin menu.** One page groups Accounts, Categories, Import & Connections and Bank Setup, your Budget Rules and Budget History, and Backup & Restore.
+  - **The Month page has three views: Charges, Mix and Cash.** Step through months with the arrows beside them, and the page keeps your view and filters. Charges shows what you expected against what happened, above your plan. Mix shows the month's 50/30/20 split, actual against plan, with what's left to spend in each bucket. Cash shows your balance looking ahead, up to five years. Filters stay in the address, so Refresh and Back keep them, and Budget breakdown opens for any month.
+  - **A check-in strip at the top of Days** says when you last reconciled and how many transactions are new, matched to your plan, or still need a look. "To look at" takes you straight to Needs Review, and Refresh data opens Import.
+  - **A quicker start.** A new household starts by dropping in a bank CSV: confirm the columns and see your 50/30/20 split for the months in the file, then add next month's plan.
+  - **Faster Needs Review.** Selected rows show an action bar that stays in view while you scroll. Each category has a select-all box, and Shift-click selects a range. Change a transaction's category right on its row. After an action the list stays where you were, and the reviewed list stays open.
+  - **Moving a match.** Matching a transaction that already belongs to another forecast moves it there, says "Moved from …", and offers Undo. Create Forecast tells you which forecast lost the transaction.
+  - **Find on page** in the desktop app: press Ctrl+F (Cmd+F on a Mac) or use Edit > Find.
+
+  ### Changed
+
+  - **Category names ignore capitals and extra spaces.** "Groceries" and "groceries" are the same category, so you can't create both, and imported transactions spelled differently go into the category you already have. If you already have categories like that, the upgrade merges each set into one, keeping its transactions, forecasts, notes and sub-categories.
+  - Month and Year are always open, with a short "get started" message until there's something to show. The guide no longer talks about unlocking: "Unlock everything" is now "Skip the guide", and the Investment account type is always offered.
+  - Your plan lives in Month › Charges. The Forecast item is gone from the Days menu.
+  - The Create Forecast dialog has a cleaner look and picks the transaction's month for you.
+  - In the Import window, the links after an import open the page in the main window and close the Import window. Every import ends with clear next steps, including a folder import or a file with nothing new.
+  - Each release on the download site now lists checksums and signatures, so you can check that an installer is genuine.
+
   ### Fixed
 
-  - **The header and navigation keep their look** when you move between pages. After clicking Months or Days, the page width, header border and nav buttons no longer fall back to unstyled.
-  - **In-app updates download.** The update banner's Download button now fetches the installer instead of failing with "status 404".
-releaseDate: '2026-10-20T02:51:42.035Z'
+  - Renaming a category moves its transactions, forecasts and notes along with it. If the new name already had notes for a month, they're kept together.
+  - Cash Status on Days shows the balances for the month you're viewing, instead of $0 for any month but the current one. For a past month, Current Cash and Projected EOM are the balance at the end of that month, and Starting Cash is the end of the month before.
+  - Category notes show your text as soon as you save.
+  - After an action in the Categories section, Needs Review, the summary and cash position update to match.
+  - A transaction is never left matched to two forecasts at once, or to none, when two actions overlap.
+  - The match dialog ranks candidates against the transaction's real amount, a missed forecast shows "Missed" once, and double-clicking Mark reviewed reviews the item only once.
+releaseDate: '2026-10-25T04:49:21.035Z'
