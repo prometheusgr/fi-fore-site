@@ -1,13 +1,45 @@
-version: 0.8.3
+version: 0.9.1
 files:
-  - url: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.8.3/fi-fore-0.8.3.AppImage
-    sha512: iMgBS3b0I7a+SCVPq3A2t0Nx/xFptk8duLJe8hzoosPoH9DsarwNFcve2Gtx7eE+wme3w6XTNmH4gOux2D24nA==
-    size: 125695102
-    blockMapSize: 132242
-path: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.8.3/fi-fore-0.8.3.AppImage
-sha512: iMgBS3b0I7a+SCVPq3A2t0Nx/xFptk8duLJe8hzoosPoH9DsarwNFcve2Gtx7eE+wme3w6XTNmH4gOux2D24nA==
+  - url: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.9.1/fi-fore-0.9.1.AppImage
+    sha512: BLoomyjRWxPNyzbuR62Hn1uTdwZ6hIoDLaKJXUSh+U37LarojnlrvaDCsFHp3Mdv7N2c2gEH6eZzIUp84wr0RA==
+    size: 125744146
+    blockMapSize: 132134
+path: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.9.1/fi-fore-0.9.1.AppImage
+sha512: BLoomyjRWxPNyzbuR62Hn1uTdwZ6hIoDLaKJXUSh+U37LarojnlrvaDCsFHp3Mdv7N2c2gEH6eZzIUp84wr0RA==
 releaseNotes: |
-  ### Security
+  0.9.0 was tagged but never published, so these are its changes, first available in 0.9.1.
 
-  - **Signed releases.** Starting with this version, every download carries a SHA-256 checksum file (`SHA256SUMS`), a Sigstore signature bundle (`SHA256SUMS.sigstore.json`), and a server-image digest pin (`*-server-image.txt`). Use the checksum commands and cosign instructions in the release notes to verify your download.
-releaseDate: '2026-10-28T08:30:00.498Z'
+  ### New
+
+  - **Connect your bank with SimpleFIN.** On Import, paste your SimpleFIN setup token, click Connect, then Link accounts and sync. Accounts with no name match start on New account, with SimpleFIN's name and a guessed type, so saving without reviewing creates them. Change a row to skip it or link an account you have. A new account's first sync brings in the last 240 days; if SimpleFIN may have older history, the account says so, and a CSV import fills the gap. Linking an account that already has CSV history starts after its last CSV row, and a sync that still brings in rows matching your CSV says how many.
+  - **SimpleFIN syncs at most once every 24 hours, and that includes Sync now.** Sync now turns off with "Next sync in 22h" until the window passes. fi-fore also syncs once, quietly, when it opens and your bank data is a day old. A failed sync isn't retried for 24 hours; entering a new token clears that. If one bank needs a fresh login at SimpleFIN, only that bank's accounts show the error. The Days check-in strip shows "Synced today · next 22h", or "Bank data not updated" when the last attempt failed.
+  - **One Import page for every way in.** Import opens "Get your transactions" with Sync, Download and CSV. Once you're connected it leads with SimpleFIN, when it last synced and Sync now. Download says when it can't run, either because you're on a server or because your bank has no login address, and links to Bank setup. Clicking Import again brings the open Import window to the front instead of opening another.
+  - **Always categorize.** After you change a transaction's category, on Transactions or in Needs Review, fi-fore offers a rule for its description and says how many other rows it would change. The pattern is filled in with the description minus trailing numbers and dates ("VONS #2103 05/12" becomes "VONS"), you can edit it, and the count and a few examples update as you type. A rule matches any description that contains the pattern. A rule leaves rows you categorized by hand alone, and Undo removes the rule and its changes. Every import then applies your rules, and the result says "N categorized by your rules". The new Category rules page in Setup lists each rule with how many transactions match it now. Remove acts at once and offers Undo. Deleting a category your rules use is refused, with a link to those rules.
+  - **Starter categories.** A new household starts with Income (Paycheck, Interest, Dividends, Other Income) and about 30 spending categories, each already in Needs, Wants or Savings. A bucket fi-fore picked for you shows "Assumed" until you click Confirm. The import summary and Budget Rules › Category Mappings also have Confirm all, and Month Mix says how much of each bucket rests on assumed categories.
+  - **Transfers between your accounts.** On a transaction, choose Mark as transfer and pick the other account, or link two transactions that are the two sides of one transfer. Both sides stay in your balances and the transaction list, but leave spending, income, category totals and Needs Review. Marking or unmarking a transfer changes totals for past months too.
+
+  ### Changed
+
+  - **First run leads with Connect your bank.** A new install opens on it: paste a SimpleFIN token, link your accounts, and your 50/30/20 split appears after the first sync. "No SimpleFIN? Import a CSV instead" is one link away, and Skip for now opens Days.
+  - **A household with no accounts and no transactions now opens on first run instead of Days**, including one that upgrades from an earlier version. Households with data see no change.
+  - **Setup's "Import & Connections" is now "Bank connections"** and only manages what is already synced: status, Sync now, Manage accounts, Disconnect and Unlink. Connecting a bank is on Import.
+  - **"Always categorize" replaces "apply to all matching".** The bulk recategorize prompt is gone.
+  - **Links to other websites open in your browser.** The app window no longer navigates away to them.
+  - The Import page is shorter: its method tabs and the top of the work area fit on a laptop screen, and a CSV's column mapping scrolls into view after you upload it.
+
+  ### Fixed
+
+  - Mark as transfer works when an account name has stray spaces from a CSV, and a transaction can't be linked into two transfers at once.
+  - A category name, account name or bank message with quotes or markup in it shows as plain text instead of running as part of the page, in the category lists, Accounts, the Edit dialog and import messages.
+  - These fixes were in the 0.8.3 download but not in its notes:
+    - Days: Cash Status shows each account type's own projection, so a credit-card forecast no longer moves the cash Projected EOM and a cash salary no longer moves the credit one.
+    - Days: a transaction dated on a statement day counts once, so stepping from a closed month to the next shows no jump.
+    - Days: the sub-menu jump links land in the right place, and the highlighted link follows the page order.
+    - The plan ratio on Mix counts delayed and cancelled forecasts the same way Charges does.
+    - Year shows its menu when you have no plan yet.
+
+  ### Known gaps
+
+  - The cash-flow in and out totals still count both sides of a transfer.
+  - Starter categories are for new households only; an existing household keeps the categories it has.
+releaseDate: '2026-11-01T11:14:41.806Z'
