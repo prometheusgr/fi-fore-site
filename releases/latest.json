@@ -1,24 +1,24 @@
 {
-  "version": "0.9.1",
-  "tag": "v0.9.1",
-  "publishedAt": "2026-11-01T11:17:33.616Z",
+  "version": "0.10.0",
+  "tag": "v0.10.0",
+  "publishedAt": "2026-11-05T02:46:44.512Z",
   "assets": [
     {
-      "name": "fi-fore-0.9.1.AppImage",
-      "size": 125744146,
-      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.9.1/fi-fore-0.9.1.AppImage",
+      "name": "fi-fore-0.10.0.AppImage",
+      "size": 125752211,
+      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.10.0/fi-fore-0.10.0.AppImage",
       "platform": "linux"
     },
     {
-      "name": "fi-fore-0.9.1.dmg",
-      "size": 119584072,
-      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.9.1/fi-fore-0.9.1.dmg",
+      "name": "fi-fore-0.10.0.dmg",
+      "size": 119618388,
+      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.10.0/fi-fore-0.10.0.dmg",
       "platform": "macos"
     },
     {
-      "name": "fi-fore-0.9.1.exe",
-      "size": 102131682,
-      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.9.1/fi-fore-0.9.1.exe",
+      "name": "fi-fore-0.10.0.exe",
+      "size": 102139042,
+      "url": "https://github.com/prometheusgr/fi-fore-site/releases/download/v0.10.0/fi-fore-0.10.0.exe",
       "platform": "windows"
     }
   ]

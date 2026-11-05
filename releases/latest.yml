@@ -1,44 +1,55 @@
-version: 0.9.1
+version: 0.10.0
 files:
-  - url: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.9.1/fi-fore-0.9.1.exe
-    sha512: wzyZhZgiqkCC829W4z3aG8nPSWh1oK0Lzk2ksP1gLi2M8i3N6TgitronONeLa1ZvivcbRZTKrzaWBvAJIzlrbw==
-    size: 102131682
-path: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.9.1/fi-fore-0.9.1.exe
-sha512: wzyZhZgiqkCC829W4z3aG8nPSWh1oK0Lzk2ksP1gLi2M8i3N6TgitronONeLa1ZvivcbRZTKrzaWBvAJIzlrbw==
+  - url: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.10.0/fi-fore-0.10.0.exe
+    sha512: PnHofgnYHwepeHowvh8CBIiZ6lEthQMr1K5DY1uX78DGz8gtQGE8AKIehdS4b8K8YzQ4EIPzR7cNzzDf2AmEfw==
+    size: 102139042
+path: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.10.0/fi-fore-0.10.0.exe
+sha512: PnHofgnYHwepeHowvh8CBIiZ6lEthQMr1K5DY1uX78DGz8gtQGE8AKIehdS4b8K8YzQ4EIPzR7cNzzDf2AmEfw==
 releaseNotes: |
-  0.9.0 was tagged but never published, so these are its changes, first available in 0.9.1.
+  Categorization you can trust: rules tell you what they will do before they do it, and you can change or undo them.
 
   ### New
 
-  - **Connect your bank with SimpleFIN.** On Import, paste your SimpleFIN setup token, click Connect, then Link accounts and sync. Accounts with no name match start on New account, with SimpleFIN's name and a guessed type, so saving without reviewing creates them. Change a row to skip it or link an account you have. A new account's first sync brings in the last 240 days; if SimpleFIN may have older history, the account says so, and a CSV import fills the gap. Linking an account that already has CSV history starts after its last CSV row, and a sync that still brings in rows matching your CSV says how many.
-  - **SimpleFIN syncs at most once every 24 hours, and that includes Sync now.** Sync now turns off with "Next sync in 22h" until the window passes. fi-fore also syncs once, quietly, when it opens and your bank data is a day old. A failed sync isn't retried for 24 hours; entering a new token clears that. If one bank needs a fresh login at SimpleFIN, only that bank's accounts show the error. The Days check-in strip shows "Synced today · next 22h", or "Bank data not updated" when the last attempt failed.
-  - **One Import page for every way in.** Import opens "Get your transactions" with Sync, Download and CSV. Once you're connected it leads with SimpleFIN, when it last synced and Sync now. Download says when it can't run, either because you're on a server or because your bank has no login address, and links to Bank setup. Clicking Import again brings the open Import window to the front instead of opening another.
-  - **Always categorize.** After you change a transaction's category, on Transactions or in Needs Review, fi-fore offers a rule for its description and says how many other rows it would change. The pattern is filled in with the description minus trailing numbers and dates ("VONS #2103 05/12" becomes "VONS"), you can edit it, and the count and a few examples update as you type. A rule matches any description that contains the pattern. A rule leaves rows you categorized by hand alone, and Undo removes the rule and its changes. Every import then applies your rules, and the result says "N categorized by your rules". The new Category rules page in Setup lists each rule with how many transactions match it now. Remove acts at once and offers Undo. Deleting a category your rules use is refused, with a link to those rules.
-  - **Starter categories.** A new household starts with Income (Paycheck, Interest, Dividends, Other Income) and about 30 spending categories, each already in Needs, Wants or Savings. A bucket fi-fore picked for you shows "Assumed" until you click Confirm. The import summary and Budget Rules › Category Mappings also have Confirm all, and Month Mix says how much of each bucket rests on assumed categories.
-  - **Transfers between your accounts.** On a transaction, choose Mark as transfer and pick the other account, or link two transactions that are the two sides of one transfer. Both sides stay in your balances and the transaction list, but leave spending, income, category totals and Needs Review. Marking or unmarking a transfer changes totals for past months too.
+  - **Change your rule.** When you hand-edit a row that a rule filed and pick a different category, the offer reads "Change your rule for "VONS" to Dining?" and says how many transactions will change. Update rule moves the rows that rule set; rows you categorized by hand stay where they are. "Just this one" files only that row. Undo puts the rule back and returns the rows it moved to the category the bank gave them.
+  - **Add and edit rules on the Category rules page.** Add rule opens a form with a live "Matches now" count as you type. Each rule has an Edit button. If you change a rule's category and it had set transactions, fi-fore asks "Change N transactions from A to B?" with Change them or Only new imports. A duplicate pattern shows its message in the form without losing what you typed.
+  - **The rule offer says where the money lands.** "Groceries counts toward Needs", with "Assumed" when fi-fore picked the bucket for you (also when the bucket comes from a parent category fi-fore assumed), or "Paycheck counts as income". When rows would change bucket, it adds "moving $1,204.00 from Wants to Needs".
+  - **Name your repeat merchants.** After an import or sync, the summary says "86 transactions have no category. Name your repeat merchants". The link opens Transactions with those rows grouped by merchant, most rows first. Pick a category for a group to save a rule and file all its rows. When a group's pattern would also catch other merchants' rows, it says so first ("Also matches 4 other transactions, like ...", "Review first: it also covers ..."), so you can name the longer merchant first. Undo restores the rows.
+  - **Transfers between your accounts pair themselves on import.** When one account's charge matches another account's deposit to the cent (Checking −$50, PayPal +$50), the two are paired as a transfer and show under Transfers with an "Auto-paired" tag and an Unpair link. Unpair undoes it, and an import won't pair those two again. The PayPal payment to the vendor stays in Needs Review. Only unique matches pair: an ambiguous one shows as "Looks like a transfer" with Pair and Not a transfer, and transfers already in your history appear the same way, with Pair all when there is more than one. Existing transactions are never paired without your say.
+  - **The Import window says what is missing before a bank can be downloaded from.** The Download card reads "PayPal has a login URL but no account. Link one" or "Ready: PayPal", with a "Bank added ✓ · Account linked ✗ · Ready to download" line. A bank with a login URL and no account shows Create account on Bank Setup, then offers Open in bank browser. The bank browser shows three steps (Log in, Download your statement as CSV, Confirm columns), labels each tab with its account, and sends a download to the tab's account without asking when the bank has only one.
+  - **Import summaries say how many rows need a category,** with a link to them. This covers CSV upload, folder import, the bank browser and SimpleFIN sync. With nothing to categorize, the sentence isn't there.
+  - **Uncategorized in the Transactions category filter.** Pick it to list the rows that have no category. A row you give a category leaves the list on the next load.
+  - **A real category hierarchy for new households.** Home (Home Mortgage, Rent, HOA and more), Food (Groceries, Restaurants, Meal Delivery), Medical, Entertainment, Transportation, Family, Shopping, Bills & Subscriptions and Services (memberships and identity services such as AAA), each leaf already in Needs, Wants or Savings and marked Assumed until you confirm it. A bank's "Mortgages" lands in Home Mortgage, and "Healthcare/Medical" in Medical.
+  - **Move an existing household to the new categories.** On Setup > Categories, "Starter categories have a new layout" says how many of your categories can move under Home, Food, Medical and more. Review changes opens a preview of every rename (Mortgages becomes Home Mortgage) and every category it would add, Services included, each with a checkbox and the bucket it counts toward. Apply changes at once, or Keep my categories. Nothing changes until you press Apply. Renames keep your transactions, forecasts, notes and rules; a bucket you chose stays as it is; a name you already have is skipped and listed under Not offered; a starter category you deleted is not brought back. Lines you leave unchecked are not offered again.
+  - **The Categories list shows where each category counts.** A category with no bucket of its own shows its bucket and "inherited from Entertainment". A parent whose children are in different buckets shows "Mixed", with a hint about where rows filed directly under it count. Assumed shows wherever the bucket was picked for you.
+  - **Category sync says what it did.** "Synced 3 new categories. fi-fore picked a bucket for each (shown as Assumed). Confirm or change them below."
 
   ### Changed
 
-  - **First run leads with Connect your bank.** A new install opens on it: paste a SimpleFIN token, link your accounts, and your 50/30/20 split appears after the first sync. "No SimpleFIN? Import a CSV instead" is one link away, and Skip for now opens Days.
-  - **A household with no accounts and no transactions now opens on first run instead of Days**, including one that upgrades from an earlier version. Households with data see no change.
-  - **Setup's "Import & Connections" is now "Bank connections"** and only manages what is already synced: status, Sync now, Manage accounts, Disconnect and Unlink. Connecting a bank is on Import.
-  - **"Always categorize" replaces "apply to all matching".** The bulk recategorize prompt is gone.
-  - **Links to other websites open in your browser.** The app window no longer navigates away to them.
-  - The Import page is shorter: its method tabs and the top of the work area fit on a laptop screen, and a CSV's column mapping scrolls into view after you upload it.
+  - **The rule offer is easier to notice.** The bar is tinted with a thick left edge and a "Rule suggestion" label, and it slides in once (not with reduced motion).
+  - **Days updates in place** when you change a category or apply or undo a rule. The page doesn't repaint: your scroll position, the Jump to bar and collapsed groups stay.
+  - **Cash Status shows the whole plan for a past or future month.** A fully reconciled month used to show $0 forecast; now its Forecast Revenue, Expense and Net show the plan, labelled Month plan. The current month still shows what remains. The burn-rate strip uses the same words: Month plan for past and future months, Forecast remaining for the current one.
+  - **Uncategorized means no category.** A row filed under an existing category is never counted as needing one, even if that category has no bucket. The bucket filter's "Uncategorized (defaulted to Wants)" now reads "No category".
+  - **Filtering by a category fi-fore doesn't know matches its exact name,** not any category containing the text.
+  - **The import preview no longer lists a bank category as new** when one of your rules files those rows somewhere else.
+  - **The desktop Import window offers Open bank browser** (or Set up a bank) next to SimpleFIN and Import a CSV.
+  - **Forecasts created from a transaction start in that transaction's account type,** so a credit row gives a Credit forecast.
+  - **The SimpleFIN account mapping step has Cancel,** which goes back without saving.
 
   ### Fixed
 
-  - Mark as transfer works when an account name has stray spaces from a CSV, and a transaction can't be linked into two transfers at once.
-  - A category name, account name or bank message with quotes or markup in it shows as plain text instead of running as part of the page, in the category lists, Accounts, the Edit dialog and import messages.
-  - These fixes were in the 0.8.3 download but not in its notes:
-    - Days: Cash Status shows each account type's own projection, so a credit-card forecast no longer moves the cash Projected EOM and a cash salary no longer moves the credit one.
-    - Days: a transaction dated on a statement day counts once, so stepping from a closed month to the next shows no jump.
-    - Days: the sub-menu jump links land in the right place, and the highlighted link follows the page order.
-    - The plan ratio on Mix counts delayed and cancelled forecasts the same way Charges does.
-    - Year shows its menu when you have no plan yet.
+  - Needs Review tables (Unmatched Forecasts and Unmatched Transactions) stay inside their panel from phone to desktop widths, and the Action buttons stay reachable.
+  - A failed hand-off to the main window from any Import page shows its error; the Import hub used to fail silently.
+  - Set up a bank in the desktop Import window opens Bank Setup in the main window. It showed a hand-off error, so a new bank's CSV couldn't be imported against a bank.
+  - Clicking a category on the Month dashboard lists that month's transactions, from the 1st. East of UTC it started on the last day of the previous month.
+  - Moving a category under a parent with a bucket now updates the bucket of the category's children straight away, so the bucket filter and the Mix Review link agree with the Categories list.
+  - The Categories create and edit forms close after a successful save, so you see the updated list.
+  - The Categories list keeps its bucket badges, Assumed marks and Confirm buttons after you create, rename, move or delete a category.
+  - Deleting a category that Undo would restore a transaction to is refused, with the number of transactions, so Undo never points at a missing category.
+  - Scenario items keep their notes and target month in the right fields.
+  - The Transactions category filter lists "All Categories" once, not twice.
 
   ### Known gaps
 
   - The cash-flow in and out totals still count both sides of a transfer.
-  - Starter categories are for new households only; an existing household keeps the categories it has.
-releaseDate: '2026-11-01T11:16:39.615Z'
+  - Rules you saved before this version keep the match type they were saved with.
+releaseDate: '2026-11-05T02:36:42.813Z'
