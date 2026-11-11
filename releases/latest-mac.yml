@@ -1,55 +1,56 @@
-version: 0.10.0
+version: 0.11.0
 files:
-  - url: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.10.0/fi-fore-0.10.0.dmg
-    sha512: z0qa+lBJLsr37YJ45e9I0kdyBg3LbS1oT15rraRULL3PAtIpw9oheDWo4JCktMyPUIEc/OnZvSDVLy3Ty3QX/Q==
-    size: 119618388
-path: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.10.0/fi-fore-0.10.0.dmg
-sha512: z0qa+lBJLsr37YJ45e9I0kdyBg3LbS1oT15rraRULL3PAtIpw9oheDWo4JCktMyPUIEc/OnZvSDVLy3Ty3QX/Q==
+  - url: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.11.0/fi-fore-0.11.0.dmg
+    sha512: M/WZN8EOgseHlGziXvTbNPIIrgi91rG+lQQ8VBIALDKFt9ltwnysU4lmixoa21cHFzIYnaS2qR3huWbd1cwjdA==
+    size: 119671037
+path: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.11.0/fi-fore-0.11.0.dmg
+sha512: M/WZN8EOgseHlGziXvTbNPIIrgi91rG+lQQ8VBIALDKFt9ltwnysU4lmixoa21cHFzIYnaS2qR3huWbd1cwjdA==
 releaseNotes: |
-  Categorization you can trust: rules tell you what they will do before they do it, and you can change or undo them.
+  A weekly check-in, end to end: Home tells you where you are and where you're headed, bank balances are checked on every sync, and the month and year pages show the plan next to what happened.
 
   ### New
 
-  - **Change your rule.** When you hand-edit a row that a rule filed and pick a different category, the offer reads "Change your rule for "VONS" to Dining?" and says how many transactions will change. Update rule moves the rows that rule set; rows you categorized by hand stay where they are. "Just this one" files only that row. Undo puts the rule back and returns the rows it moved to the category the bank gave them.
-  - **Add and edit rules on the Category rules page.** Add rule opens a form with a live "Matches now" count as you type. Each rule has an Edit button. If you change a rule's category and it had set transactions, fi-fore asks "Change N transactions from A to B?" with Change them or Only new imports. A duplicate pattern shows its message in the form without losing what you typed.
-  - **The rule offer says where the money lands.** "Groceries counts toward Needs", with "Assumed" when fi-fore picked the bucket for you (also when the bucket comes from a parent category fi-fore assumed), or "Paycheck counts as income". When rows would change bucket, it adds "moving $1,204.00 from Wants to Needs".
-  - **Name your repeat merchants.** After an import or sync, the summary says "86 transactions have no category. Name your repeat merchants". The link opens Transactions with those rows grouped by merchant, most rows first. Pick a category for a group to save a rule and file all its rows. When a group's pattern would also catch other merchants' rows, it says so first ("Also matches 4 other transactions, like ...", "Review first: it also covers ..."), so you can name the longer merchant first. Undo restores the rows.
-  - **Transfers between your accounts pair themselves on import.** When one account's charge matches another account's deposit to the cent (Checking −$50, PayPal +$50), the two are paired as a transfer and show under Transfers with an "Auto-paired" tag and an Unpair link. Unpair undoes it, and an import won't pair those two again. The PayPal payment to the vendor stays in Needs Review. Only unique matches pair: an ambiguous one shows as "Looks like a transfer" with Pair and Not a transfer, and transfers already in your history appear the same way, with Pair all when there is more than one. Existing transactions are never paired without your say.
-  - **The Import window says what is missing before a bank can be downloaded from.** The Download card reads "PayPal has a login URL but no account. Link one" or "Ready: PayPal", with a "Bank added ✓ · Account linked ✗ · Ready to download" line. A bank with a login URL and no account shows Create account on Bank Setup, then offers Open in bank browser. The bank browser shows three steps (Log in, Download your statement as CSV, Confirm columns), labels each tab with its account, and sends a download to the tab's account without asking when the bank has only one.
-  - **Import summaries say how many rows need a category,** with a link to them. This covers CSV upload, folder import, the bank browser and SimpleFIN sync. With nothing to categorize, the sentence isn't there.
-  - **Uncategorized in the Transactions category filter.** Pick it to list the rows that have no category. A row you give a category leaves the list on the next load.
-  - **A real category hierarchy for new households.** Home (Home Mortgage, Rent, HOA and more), Food (Groceries, Restaurants, Meal Delivery), Medical, Entertainment, Transportation, Family, Shopping, Bills & Subscriptions and Services (memberships and identity services such as AAA), each leaf already in Needs, Wants or Savings and marked Assumed until you confirm it. A bank's "Mortgages" lands in Home Mortgage, and "Healthcare/Medical" in Medical.
-  - **Move an existing household to the new categories.** On Setup > Categories, "Starter categories have a new layout" says how many of your categories can move under Home, Food, Medical and more. Review changes opens a preview of every rename (Mortgages becomes Home Mortgage) and every category it would add, Services included, each with a checkbox and the bucket it counts toward. Apply changes at once, or Keep my categories. Nothing changes until you press Apply. Renames keep your transactions, forecasts, notes and rules; a bucket you chose stays as it is; a name you already have is skipped and listed under Not offered; a starter category you deleted is not brought back. Lines you leave unchecked are not offered again.
-  - **The Categories list shows where each category counts.** A category with no bucket of its own shows its bucket and "inherited from Entertainment". A parent whose children are in different buckets shows "Mixed", with a hint about where rows filed directly under it count. Assumed shows wherever the bucket was picked for you.
-  - **Category sync says what it did.** "Synced 3 new categories. fi-fore picked a bucket for each (shown as Assumed). Confirm or change them below."
+  - **Home is the landing page.** It answers "Where am I now?" and "Am I on plan?", then "Where am I headed?" from your monthly forecast. A next-step strip says what to do next, and "Your data" shows each account's history range and when it last updated. Your mix and data freshness moved here from Days.
+  - **Your mix on Days and Month.** A Your mix card shows the month-end forecast ratio, and the Mix lens shows it too. Both read from one verdict, so they agree. A ratio gap says what drives it, and income not yet assigned to a bucket is marked on the bar as counted in Invest.
+  - **The 20% bucket is named Invest** everywhere you see it.
+  - **Fi-fore checks its balance against your bank's on every SimpleFIN sync.** Pending charges and rows after the bank's balance date are left out of the check. The hint is worded for credit cards ("owed"). A bank that needs a re-login says so and links to SimpleFIN Bridge, and Reconnect opens the institution's sign-in page. Sync now stays available after a re-login is needed. Fi-fore also says how many SimpleFIN charges are still pending.
+  - **Backfill history from SimpleFIN a few requests a day** until the bank runs out of history, and **add older history to an account from a CSV**, imported as history.
+  - **Reuse your saved CSV mapping** on repeat imports. Folder imports and bank downloads work with accounts that have several mappings, and a file that fails in a folder import is shown as an error in plain words, with its reason.
+  - **The import preview leads with its Import action,** with the rows tucked away below.
+  - **Account summary in the sidebar** (and in the phone More menu), with the real balance basis as visible text and in its tooltip.
+  - **Plan vs. actual on Month in Review.** Month in Review also links from Days and from the Month lens bar, and handles a month not started, money left in the plan, and no "-0".
+  - **Years: Charges, Mix and Cash lenses** with a year stepper. The current year comes from the monthly forecast, and the page says so.
+  - **Week and the Mix lens have empty states,** and so does the Month Cash lens when the plan has no items.
+  - **Delay a forecast into a month.** A recurring forecast delayed into a month is planned and matched there, tagged "Delayed in" on the Charges list, and a delayed-in reconciliation row offers Cancel and Delay.
+  - **Create a category inline** in the Forecast add and edit modal.
+  - **Undo notice for Mark as Reviewed.** One shared Undo notice replaces the old one.
+  - **The Days month stepper stays in the jump-to bar,** and the Days chrome fits a 390px phone (jump bar, check-in strip, Back to Top).
+  - **When Days has nothing left to review,** it offers the month-over-month view instead of praise for an empty month.
 
   ### Changed
 
-  - **The rule offer is easier to notice.** The bar is tinted with a thick left edge and a "Rule suggestion" label, and it slides in once (not with reduced motion).
-  - **Days updates in place** when you change a category or apply or undo a rule. The page doesn't repaint: your scroll position, the Jump to bar and collapsed groups stay.
-  - **Cash Status shows the whole plan for a past or future month.** A fully reconciled month used to show $0 forecast; now its Forecast Revenue, Expense and Net show the plan, labelled Month plan. The current month still shows what remains. The burn-rate strip uses the same words: Month plan for past and future months, Forecast remaining for the current one.
-  - **Uncategorized means no category.** A row filed under an existing category is never counted as needing one, even if that category has no bucket. The bucket filter's "Uncategorized (defaulted to Wants)" now reads "No category".
-  - **Filtering by a category fi-fore doesn't know matches its exact name,** not any category containing the text.
-  - **The import preview no longer lists a bank category as new** when one of your rules files those rows somewhere else.
-  - **The desktop Import window offers Open bank browser** (or Set up a bank) next to SimpleFIN and Import a CSV.
-  - **Forecasts created from a transaction start in that transaction's account type,** so a credit row gives a Credit forecast.
-  - **The SimpleFIN account mapping step has Cancel,** which goes back without saving.
+  - **A new forecast starts at its oldest matching month.**
+  - **Month balances include the bank's opening balance** in the sidebar, Accounts, forecast balances and Days. The statement opening adjustment lands in the account's own first month, and the starting balance is re-derived once no statement balance anchors the account.
+  - **Month Cash basis counts child categories** in the needs runway, and says which basis the Projected EOM tooltip uses for past and future months.
+  - **The Month Charges list shows the effective plan,** so its rows sum to the cards. Overview variance is hidden for a month not started, and Other Categories variance and percent come from its totals.
+  - **A matched-then-cancelled forecast stays in the Days plan.**
+  - **The Transactions filter bar updates without a page reload,** and rows with equal values keep a stable order.
+  - **The SimpleFIN account mapping intro** matches the New account default, and the old import preview hides while the mapping editor is open.
 
   ### Fixed
 
-  - Needs Review tables (Unmatched Forecasts and Unmatched Transactions) stay inside their panel from phone to desktop widths, and the Action buttons stay reachable.
-  - A failed hand-off to the main window from any Import page shows its error; the Import hub used to fail silently.
-  - Set up a bank in the desktop Import window opens Bank Setup in the main window. It showed a hand-off error, so a new bank's CSV couldn't be imported against a bank.
-  - Clicking a category on the Month dashboard lists that month's transactions, from the 1st. East of UTC it started on the last day of the previous month.
-  - Moving a category under a parent with a bucket now updates the bucket of the category's children straight away, so the bucket filter and the Mix Review link agree with the Categories list.
-  - The Categories create and edit forms close after a successful save, so you see the updated list.
-  - The Categories list keeps its bucket badges, Assumed marks and Confirm buttons after you create, rename, move or delete a category.
-  - Deleting a category that Undo would restore a transaction to is refused, with the number of transactions, so Undo never points at a missing category.
-  - Scenario items keep their notes and target month in the right fields.
-  - The Transactions category filter lists "All Categories" once, not twice.
+  - The balance projection no longer counts forecasts with no target month in every month.
+  - Days Your mix: the forecast row follows the account-type filter.
+  - Days no longer praises an empty month in Needs Review.
+  - Import reports success when only bookkeeping after the import fails, and takes the statement balance only from rows the import accepted.
+  - A header-named Amount column stays an amount when many rows are zero.
+  - The Days finish link opens at the top, in a success alert.
+  - Forecast review state is kept per occurrence.
+  - Days Data Freshness names the stale account.
 
   ### Known gaps
 
-  - The cash-flow in and out totals still count both sides of a transfer.
-  - Rules you saved before this version keep the match type they were saved with.
-releaseDate: '2026-11-05T02:35:11.888Z'
+  - Cancelling a matched delayed-in occurrence drops it from the plan and leaves its match behind.
+  - Forecast Delay and Cancel validation errors return a server error instead of a clear message.
+  - The landing-page preference is saved but not read at app start.
+releaseDate: '2026-11-11T16:33:00.773Z'
