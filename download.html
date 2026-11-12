@@ -41,10 +41,10 @@
   <h1>Download fi-fore</h1>
   <p class="version" id="version">Fetching latest release…</p>
   <div class="buttons" id="buttons"></div>
-  <nav><a href="/fi-fore-site/">← Home</a> | <a href="/fi-fore-site/changelog.html">Changelog</a></nav>
+  <nav><a href="/">← Home</a> | <a href="/changelog.html">Changelog</a></nav>
 
   <script>
-    const MANIFEST = 'https://prometheusgr.github.io/fi-fore-site/releases/latest.json';
+    const MANIFEST = '/releases/latest.json';
     const PLATFORM_MAP = [
       { ext: '.exe',      icon: '🪟', label: 'Windows', sub: 'Installer (.exe)', detect: () => /Win/.test(navigator.platform) },
       { ext: '.dmg',      icon: '🍎', label: 'macOS',   sub: 'Disk image (.dmg)', detect: () => /Mac/.test(navigator.platform) },
@@ -110,7 +110,7 @@
       });
   </script>
   <script>
-    var homeLink = document.querySelector('nav a[href="/fi-fore-site/"]');
+    var homeLink = document.querySelector('nav a[href="/"]');
     if (homeLink) {
       homeLink.addEventListener('click', function() {
         if (window.goatcounter && window.goatcounter.count) {
