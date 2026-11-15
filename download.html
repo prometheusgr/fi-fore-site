@@ -33,6 +33,9 @@
     .dl-btn .label { font-weight: 600; }
     .dl-btn .size { color: #888; font-size: 0.85rem; margin-left: auto; }
     .error { color: #c00; }
+    .beta-note { margin: 1.75rem 0 0.75rem; font-size: 0.9rem; color: #555; }
+    .beta-note strong { color: #b45309; }
+    .badge-beta { background: #fef3c7; color: #b45309; font-size: 0.7rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 4px; margin-left: 0.4rem; }
     nav { margin-top: 3rem; font-size: 0.9rem; }
     nav a { color: #555; }
   </style>
@@ -41,14 +44,16 @@
   <h1>Download fi-fore</h1>
   <p class="version" id="version">Fetching latest release…</p>
   <div class="buttons" id="buttons"></div>
+  <p class="beta-note" id="beta-note" hidden><strong>BETA:</strong> the macOS and Linux downloads are not signed yet, so your system may warn before opening them.</p>
+  <div class="buttons" id="beta-buttons"></div>
   <nav><a href="/">← Home</a> | <a href="/changelog.html">Changelog</a></nav>
 
   <script>
     const MANIFEST = '/releases/latest.json';
     const PLATFORM_MAP = [
-      { ext: '.exe',      icon: '🪟', label: 'Windows', sub: 'Installer (.exe)', detect: () => /Win/.test(navigator.platform) },
-      { ext: '.dmg',      icon: '🍎', label: 'macOS',   sub: 'Disk image (.dmg)', detect: () => /Mac/.test(navigator.platform) },
-      { ext: '.AppImage', icon: '🐧', label: 'Linux',   sub: 'AppImage', detect: () => /Linux/.test(navigator.platform) },
+      { ext: '.exe',      icon: '🪟', label: 'Windows', sub: 'Installer (.exe)', beta: false, detect: () => /Win/.test(navigator.platform) },
+      { ext: '.dmg',      icon: '🍎', label: 'macOS',   sub: 'Disk image (.dmg)', beta: true, detect: () => /Mac/.test(navigator.platform) },
+      { ext: '.AppImage', icon: '🐧', label: 'Linux',   sub: 'AppImage', beta: true, detect: () => /Linux/.test(navigator.platform) },
     ];
 
     function fmtSize(bytes) {
@@ -66,30 +71,30 @@
           'Latest: v' + release.version + ' — released ' +
           new Date(release.publishedAt).toLocaleDateString();
 
-        const buttons = document.getElementById('buttons');
         const detectedOS = detectOS();
-        
-        // Sort platforms: detected OS first, then others
+
+        // Windows first, then the BETA platforms with the detected OS ahead of the other
         const sortedPlatforms = [...PLATFORM_MAP].sort((a, b) => {
+          if (a.beta !== b.beta) return a.beta ? 1 : -1;
           if (a === detectedOS) return -1;
           if (b === detectedOS) return 1;
           return 0;
         });
 
         sortedPlatforms.forEach((platform) => {
-          const { ext, icon, label, sub } = platform;
+          const { ext, icon, label, sub, beta } = platform;
           const asset = release.assets.find(a => a.name.endsWith(ext));
           if (!asset) return;
           
           const a = document.createElement('a');
           a.className = 'dl-btn';
-          if (platform === detectedOS) {
+          if (platform === detectedOS && !beta) {
             a.className += ' recommended';
           }
           a.href = asset.url;
           a.innerHTML =
             '<span class="icon">' + icon + '</span>' +
-            '<span><span class="label">' + label + '</span><br><small>' + sub + '</small></span>' +
+            '<span><span class="label">' + label + '</span>' + (beta ? '<span class="badge-beta">BETA</span>' : '') + '<br><small>' + sub + '</small></span>' +
             '<span class="size">' + fmtSize(asset.size) + '</span>';
           a.addEventListener('click', function() {
             if (window.goatcounter && window.goatcounter.count) {
@@ -100,7 +105,8 @@
               });
             }
           });
-          buttons.appendChild(a);
+          if (beta) document.getElementById('beta-note').hidden = false;
+          document.getElementById(beta ? 'beta-buttons' : 'buttons').appendChild(a);
         });
       })
       .catch(() => {
