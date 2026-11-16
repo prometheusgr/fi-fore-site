@@ -1,56 +1,45 @@
-version: 0.11.0
+version: 0.12.0
 files:
-  - url: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.11.0/fi-fore-0.11.0.exe
-    sha512: cHzggD4WKSLZHpRJ1p5hbhIx1LHcQEx04RhVl5a9uTvK3sZcnDqOOAnAfeMjkcHdEdvtaTHzuhHd5a3HeeDNXw==
-    size: 102172792
-path: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.11.0/fi-fore-0.11.0.exe
-sha512: cHzggD4WKSLZHpRJ1p5hbhIx1LHcQEx04RhVl5a9uTvK3sZcnDqOOAnAfeMjkcHdEdvtaTHzuhHd5a3HeeDNXw==
+  - url: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.12.0/fi-fore-0.12.0.exe
+    sha512: 6q5yfUVqWTmYy/t+QdZ7CkpnoCWP8uYK2NDnuInx4wHuAb4QrI+E35YhKTOrRw3pZCSH6hLqynaUkKQUjrNsgA==
+    size: 102214686
+path: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.12.0/fi-fore-0.12.0.exe
+sha512: 6q5yfUVqWTmYy/t+QdZ7CkpnoCWP8uYK2NDnuInx4wHuAb4QrI+E35YhKTOrRw3pZCSH6hLqynaUkKQUjrNsgA==
 releaseNotes: |
-  A weekly check-in, end to end: Home tells you where you are and where you're headed, bank balances are checked on every sync, and the month and year pages show the plan next to what happened.
+  Your ratio, read at a glance and traced to its numbers: Home and Days show the Forecast, Current and Target 50/30/20 side by side, every figure opens "How it adds up", and Days now flags what surprised you and lets you fix it in place.
 
   ### New
 
-  - **Home is the landing page.** It answers "Where am I now?" and "Am I on plan?", then "Where am I headed?" from your monthly forecast. A next-step strip says what to do next, and "Your data" shows each account's history range and when it last updated. Your mix and data freshness moved here from Days.
-  - **Your mix on Days and Month.** A Your mix card shows the month-end forecast ratio, and the Mix lens shows it too. Both read from one verdict, so they agree. A ratio gap says what drives it, and income not yet assigned to a bucket is marked on the bar as counted in Invest.
-  - **The 20% bucket is named Invest** everywhere you see it.
-  - **Fi-fore checks its balance against your bank's on every SimpleFIN sync.** Pending charges and rows after the bank's balance date are left out of the check. The hint is worded for credit cards ("owed"). A bank that needs a re-login says so and links to SimpleFIN Bridge, and Reconnect opens the institution's sign-in page. Sync now stays available after a re-login is needed. Fi-fore also says how many SimpleFIN charges are still pending.
-  - **Backfill history from SimpleFIN a few requests a day** until the bank runs out of history, and **add older history to an account from a CSV**, imported as history.
-  - **Reuse your saved CSV mapping** on repeat imports. Folder imports and bank downloads work with accounts that have several mappings, and a file that fails in a folder import is shown as an error in plain words, with its reason.
-  - **The import preview leads with its Import action,** with the rows tucked away below.
-  - **Account summary in the sidebar** (and in the phone More menu), with the real balance basis as visible text and in its tooltip.
-  - **Plan vs. actual on Month in Review.** Month in Review also links from Days and from the Month lens bar, and handles a month not started, money left in the plan, and no "-0".
-  - **Years: Charges, Mix and Cash lenses** with a year stepper. The current year comes from the monthly forecast, and the page says so.
-  - **Week and the Mix lens have empty states,** and so does the Month Cash lens when the plan has no items.
-  - **Delay a forecast into a month.** A recurring forecast delayed into a month is planned and matched there, tagged "Delayed in" on the Charges list, and a delayed-in reconciliation row offers Cancel and Delay.
-  - **Create a category inline** in the Forecast add and edit modal.
-  - **Undo notice for Mark as Reviewed.** One shared Undo notice replaces the old one.
-  - **The Days month stepper stays in the jump-to bar,** and the Days chrome fits a 390px phone (jump bar, check-in strip, Back to Top).
-  - **When Days has nothing left to review,** it offers the month-over-month view instead of praise for an empty month.
+  - **A Ratio card on Home and on Days.** It shows Forecast, Current and the 50/30/20 Target side by side for the month you are looking at. Past months use actuals only. Months > Mix has a collapsed "How it adds up" for each block, with each category linked to its transactions (or, for the Forecast, to its plan items).
+  - **Compare your mix with households like yours.** Pick a yearly household income band under the Mix chart to see that band's average next to your Needs, Wants and Invest shares. The band is a share of income before taxes, and your ratios use take-home pay. A "Needs come first" card appears on Mix when your Needs have run above your band for three months.
+  - **Days flags what needs a look.** A "To look at" list shows charges not in your plan, charges above or below their plan amount, and plan items that have not shown up. Each row has a one-click fix with Undo. Set how far off a charge can be before it is flagged under Setup > Plan > Surprises (10% by default).
+  - **Change a forecast's category from its line on Days.** A pencil on a missed forecast line opens a picker. A recurring forecast asks whether to change the whole series (the default) or this month only.
+  - **Forecasted income on Days.** The Categories section has an Income table under spending, with Arrived, Plan and a "short" or "extra" difference.
+  - **Accept all suggested matches in one click,** with Undo. Weak suggestions are hidden in Needs Review, and each row has one main action.
+  - **A bill whose description changes every month still matches its plan item.** A policy number, reference or date at the end of the description no longer keeps the bill from matching.
+  - **Set, edit and remove a category budget from Days in two clicks.** Budgeted rows show a pace tick and "ahead" or "under pace" wording, and past months read "Closed $38 under". Categories shows which categories carry a budget, with a Set plan button.
+  - **Recent matched actuals show beside a forecast amount.**
+  - **Months shows the big and irregular items coming up,** and Home's "Where am I headed" lists its top Coming up items.
+  - **Create Forecast suggests a start month** and shows the evidence for it.
+  - **Assign unassigned income to a bucket from the Mix footnote.**
+  - **fi-fore opens on the landing page you saved.**
 
   ### Changed
 
-  - **A new forecast starts at its oldest matching month.**
-  - **Month balances include the bank's opening balance** in the sidebar, Accounts, forecast balances and Days. The statement opening adjustment lands in the account's own first month, and the starting balance is re-derived once no statement balance anchors the account.
-  - **Month Cash basis counts child categories** in the needs runway, and says which basis the Projected EOM tooltip uses for past and future months.
-  - **The Month Charges list shows the effective plan,** so its rows sum to the cards. Overview variance is hidden for a month not started, and Other Categories variance and percent come from its totals.
-  - **A matched-then-cancelled forecast stays in the Days plan.**
-  - **The Transactions filter bar updates without a page reload,** and rows with equal values keep a stable order.
-  - **The SimpleFIN account mapping intro** matches the New account default, and the old import preview hides while the mapping editor is open.
+  - **Needs is teal, Wants violet and Invest burnt orange,** and money is neutral: no green income or pink money out. The Needs and Invest fills are darker so their white labels are readable.
+  - **The Days month arrows stop at the first and last month with transactions,** with a note ("Oldest data" or "Latest data") under the bar.
+  - **A charge you have paid but not yet matched to its plan item counts once,** in the Current ratio, in the cash outlook and in To look at, instead of twice.
+  - **Refunds reduce their category in the Mix ratio,** and spending with no category is no longer counted as "Income not spent".
+  - **Each page has one title.** The active sub-nav item is accent and bold.
+  - **A below-zero Projected EOM shows in danger text,** and a future month's Cash Status is projected through the months in between.
 
   ### Fixed
 
-  - The balance projection no longer counts forecasts with no target month in every month.
-  - Days Your mix: the forecast row follows the account-type filter.
-  - Days no longer praises an empty month in Needs Review.
-  - Import reports success when only bookkeeping after the import fails, and takes the statement balance only from rows the import accepted.
-  - A header-named Amount column stays an amount when many rows are zero.
-  - The Days finish link opens at the top, in a success alert.
-  - Forecast review state is kept per occurrence.
-  - Days Data Freshness names the stale account.
-
-  ### Known gaps
-
-  - Cancelling a matched delayed-in occurrence drops it from the plan and leaves its match behind.
-  - Forecast Delay and Cancel validation errors return a server error instead of a clear message.
-  - The landing-page preference is saved but not read at app start.
-releaseDate: '2026-11-11T16:34:51.012Z'
+  - **Saving or deleting a forecast item shows the real error message** (for example "Start month must not be after the end month"), and bad forecast input is answered as a bad request instead of a server error.
+  - **Days Starting Cash for your oldest month** works out from the statement balance instead of showing N/A.
+  - **An account synced today no longer reads "stale" on Home.**
+  - **Categories, Month in Review, Needs Review and Charges rows fit a phone screen** without scrolling sideways.
+  - **Needs Review keeps its state after a category change,** and Days refreshes after an inline Confirm.
+  - **Undo on a removed category budget restores its links.**
+  - **The Years Base Projection line is drawn dashed,** as a plan.
+releaseDate: '2026-11-16T21:28:42.799Z'
