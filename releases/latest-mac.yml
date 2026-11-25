@@ -1,45 +1,74 @@
-version: 0.12.0
+version: 0.13.0
 files:
-  - url: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.12.0/fi-fore-0.12.0.dmg
-    sha512: YeIwPkihlOIjzcgVW24SSn59LMYLUUsXC6UI9foxmBC+rYvc5HlsLvsEuqbWuOYJGQqEdxvKGibXeZbrb/8eWg==
-    size: 119693007
-path: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.12.0/fi-fore-0.12.0.dmg
-sha512: YeIwPkihlOIjzcgVW24SSn59LMYLUUsXC6UI9foxmBC+rYvc5HlsLvsEuqbWuOYJGQqEdxvKGibXeZbrb/8eWg==
+  - url: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.13.0/fi-fore-0.13.0.dmg
+    sha512: yHtZbnCYv6PLWhO5R49SpBDKjOlnSYe/bbWZ844tJrl3alVIqE4VYw9User4QVh61hogA4q0TEoGc5hUwkV3tw==
+    size: 128092190
+path: https://github.com/prometheusgr/fi-fore-site/releases/download/v0.13.0/fi-fore-0.13.0.dmg
+sha512: yHtZbnCYv6PLWhO5R49SpBDKjOlnSYe/bbWZ844tJrl3alVIqE4VYw9User4QVh61hogA4q0TEoGc5hUwkV3tw==
 releaseNotes: |
-  Your ratio, read at a glance and traced to its numbers: Home and Days show the Forecast, Current and Target 50/30/20 side by side, every figure opens "How it adds up", and Days now flags what surprised you and lets you fix it in place.
+  Every forecast in one place: a Forecast page to review, edit and reconcile each item, bills that repeat every few months, Home led by Cash Status and the month-by-month overview, and a sample household to explore first.
+
+  ### ⚠️ Breaking: older versions can't open your data after this update
+
+  - **Transactions are now linked to their account directly instead of by its name.** After the update, fi-fore 0.12.0 and earlier won't work with your data, and a backup made with 0.13.0 restores only in 0.13.0 or later. If you might want to go back, make a backup under Setup > App > Backup & Restore before you update.
+  - **If some transactions name an account you don't have, the update finishes in two steps.** fi-fore opens as usual and Home says "N transactions name accounts you don't have yet" with Link them. Accounts lists each name with a Create cash account button. Once every name has an account, the update completes the next time you start fi-fore. Nothing is deleted while it waits.
 
   ### New
 
-  - **A Ratio card on Home and on Days.** It shows Forecast, Current and the 50/30/20 Target side by side for the month you are looking at. Past months use actuals only. Months > Mix has a collapsed "How it adds up" for each block, with each category linked to its transactions (or, for the Forecast, to its plan items).
-  - **Compare your mix with households like yours.** Pick a yearly household income band under the Mix chart to see that band's average next to your Needs, Wants and Invest shares. The band is a share of income before taxes, and your ratios use take-home pay. A "Needs come first" card appears on Mix when your Needs have run above your band for three months.
-  - **Days flags what needs a look.** A "To look at" list shows charges not in your plan, charges above or below their plan amount, and plan items that have not shown up. Each row has a one-click fix with Undo. Set how far off a charge can be before it is flagged under Setup > Plan > Surprises (10% by default).
-  - **Change a forecast's category from its line on Days.** A pencil on a missed forecast line opens a picker. A recurring forecast asks whether to change the whole series (the default) or this month only.
-  - **Forecasted income on Days.** The Categories section has an Income table under spending, with Arrived, Plan and a "short" or "extra" difference.
-  - **Accept all suggested matches in one click,** with Undo. Weak suggestions are hidden in Needs Review, and each row has one main action.
-  - **A bill whose description changes every month still matches its plan item.** A policy number, reference or date at the end of the description no longer keeps the bill from matching.
-  - **Set, edit and remove a category budget from Days in two clicks.** Budgeted rows show a pace tick and "ahead" or "under pace" wording, and past months read "Closed $38 under". Categories shows which categories carry a budget, with a Set plan button.
-  - **Recent matched actuals show beside a forecast amount.**
-  - **Months shows the big and irregular items coming up,** and Home's "Where am I headed" lists its top Coming up items.
-  - **Create Forecast suggests a start month** and shows the evidence for it.
-  - **Assign unassigned income to a bucket from the Mix footnote.**
-  - **fi-fore opens on the landing page you saved.**
+  - **A Forecast page lists every forecast item in one place.** Open it from the sidebar. Filter by month, account type, frequency and category, and group by Category, Bucket or Frequency. Each row shows the months it lands in this year and whether this month's charge was seen, with Find Match for one that wasn't. What-if items can be shown alongside, read-only.
+  - **Bills that repeat every few months.** Choose Every few months and a first month in the forecast dialog, including Create Forecast from a transaction. The first month is suggested from the run of past charges, and Needs Review reads "every 2 months".
+  - **One forecast dialog everywhere:** Add, Edit, Create Forecast from a transaction and Credit Spending's payment forecast. Edit shows when the charge was first seen, the suggested start, the last charge and the recent average, with Use last and Use average.
+  - **Home leads with Cash Status and the Monthly Financial Overview.** Cash Status from Days takes the place of Where am I now. Beside it, Income and Spending bars with a Net line run from three months back to six ahead: past months solid, this month as Now, later months as plan. It takes the place of Where am I headed.
+  - **Drill into a bucket.** Click Needs, Wants or Savings under the Ratio on Home or Days, or a bucket in Month > Mix "How it adds up", to see its categories largest first, each with its share, a six-month trend and how much of it is recurring.
+  - **Where Savings leads on Year > Cash.** Under the net worth chart, today's Savings share and the 20% standard each show where they lead by the end of the range, and what the difference is worth a year.
+  - **Explore with a sample household.** Offered on first run and under Setup > Sample household. A banner says nothing in it is real, Reset sample rebuilds it, and Back to my data returns to your own.
+  - **What leaves this machine,** under Setup > App, lists everything fi-fore can contact, what is sent and when. There is no telemetry and no AI service.
+  - **The sidebar flags accounts that need attention:** a login that needs reconnecting, an account never imported or not updated in over 7 days, and a cash balance below zero. Each flag links to its fix, and a collapsed group shows how many. Hovering an account shows its last transaction and when it last updated.
+  - **Home's Your data shows one row per account,** with its state and one action (Reconnect, Import or Sync), the accounts that need you first.
+  - **Resize the sidebar** by dragging its edge. fi-fore remembers the width, and a double-click resets it.
+  - **Type to filter** any long category dropdown.
+  - **A trail under the page header shows where you came from** after you drill down. Click an earlier step to go back with your filters kept.
+  - **Set a category's bucket** from the Edit Category dialog.
+  - **Manage accounts shows each SimpleFIN login** and, when one fails, which one and why.
+  - **Accounts names the transactions whose account doesn't exist,** with Create cash account for each.
+  - **Month > Charges reads as plan against what was seen:** each charge shows its Planned amount and when it was Seen, or Not seen yet, with its bucket and account type.
+  - **Needs Review shows an unmatched plan item's past charges,** and an Off-amount group lists matched charges far from their plan amount, with Accept and Undo.
+  - **Find Match says which month's forecast a match lands in,** warns when that forecast is already matched that month, and marks each row as Forecast or Transaction. A match that crosses a month edge is explained on both months.
+  - **The Categories header says when income is still to come,** for example "2 income open", outside the spending Total.
 
   ### Changed
 
-  - **Needs is teal, Wants violet and Invest burnt orange,** and money is neutral: no green income or pink money out. The Needs and Invest fills are darker so their white labels are readable.
-  - **The Days month arrows stop at the first and last month with transactions,** with a note ("Oldest data" or "Latest data") under the bar.
-  - **A charge you have paid but not yet matched to its plan item counts once,** in the Current ratio, in the cash outlook and in To look at, instead of twice.
-  - **Refunds reduce their category in the Mix ratio,** and spending with no category is no longer counted as "Income not spent".
-  - **Each page has one title.** The active sub-nav item is accent and bold.
-  - **A below-zero Projected EOM shows in danger text,** and a future month's Cash Status is projected through the months in between.
+  - **The 20% bucket is named Savings again** everywhere you see it.
+  - **The Ratio on Home and Days shows Forecast and Actual columns against each bucket's target line.** Actual is solid for what was spent, with plan still to come hatched on top. On Month > Mix, the current month is one bar: solid for spent, hatched for still to come.
+  - **Days no longer has a To look at list.** Off-amount charges are in Needs Review, and missing plan items are its unmatched rows.
+  - **Month opens on its Overview.** Future months show the balance With typical unplanned, which is your average spending in categories with no forecast, beside the Plan line. The row links to those transactions.
+  - **Transactions is in the sidebar,** above Forecast.
+  - **Transactions filters are grouped** into Period, Account, Category and Search, and active filters show as chips you can remove, with Clear all.
+  - **One getting-started checklist for everyone.** The guided or unlocked choice is gone, and new households open on Home.
+  - **Deleting a statement balance or seeding accounts offers Undo** instead of asking first.
+  - **Cash Status cards mark actual with a solid stripe and forecast with a dashed one.**
+  - **Mix's Needs come first card states the gap as four facts,** one per line.
+  - **Sidebar account rows fit on one line** in whole dollars. The hover shows cents.
+  - **Pages load faster,** especially Transactions, Days, Home and Month.
+  - **The desktop app only answers on this computer,** and refuses requests from other websites. Its window now opens on 127.0.0.1, so view choices remembered in the window, such as a collapsed section, start fresh once. Your settings are kept.
+  - **The desktop app runs on a newer Electron,** with its security fixes.
 
   ### Fixed
 
-  - **Saving or deleting a forecast item shows the real error message** (for example "Start month must not be after the end month"), and bad forecast input is answered as a bad request instead of a server error.
-  - **Days Starting Cash for your oldest month** works out from the statement balance instead of showing N/A.
-  - **An account synced today no longer reads "stale" on Home.**
-  - **Categories, Month in Review, Needs Review and Charges rows fit a phone screen** without scrolling sideways.
-  - **Needs Review keeps its state after a category change,** and Days refreshes after an inline Confirm.
-  - **Undo on a removed category budget restores its links.**
-  - **The Years Base Projection line is drawn dashed,** as a plan.
-releaseDate: '2026-11-16T21:28:16.759Z'
+  - **Deposits left Uncategorized count as income on every page,** including Days, Month > Mix, Home, Month in Review and the Forecast page. A refund tagged to an expense category reduces that category.
+  - **Every spelling of Uncategorized shows as one row** on Categories.
+  - **Projected EOM, the Month view balance and Year > Cash no longer count a plan item already paid this month twice.** Future Cash and Credit Totals carry on from this month's forecast.
+  - **A paid plan item is recognised more reliably:** a charge in a subcategory pays its parent's plan item, a reviewed charge pays its category's open item, transfers are skipped, and another payee's deposit no longer counts as a recurring income item that hasn't arrived.
+  - **Money planned into Savings counts as saved,** not spent, in Year > Cash and Month > Cash totals, and once when its two sides sit in different categories.
+  - **Yearly, quarterly and one-time items appear only in the months they occur** on Credit Spending, What-if and Year.
+  - **Delete, Edit and Statement balance work for Credit and Investment accounts** on the Accounts page.
+  - **An account with a statement balance of 0** shows 0 instead of the sum of its transactions.
+  - **Account names padded with tabs or odd spaces link to their account,** and Seed from Transactions makes one account per name, whatever its spelling.
+  - **A refused account action shows the reason on the page.**
+  - **Add older history says when a file has no rows for that account.**
+  - **Create Forecast from Category Details preselects the category and account type.**
+  - **Edit on one of two look-alike subscriptions shows its own First seen date.**
+  - **Categories refreshes in place after a match picked in Find Match.**
+  - **A bucket only the forecast has still shows on the Ratio,** and Current reads "no plan this month" when the month has no plan items.
+  - **The Transactions account-type filter keeps transactions whose account isn't set up yet.**
+releaseDate: '2026-11-25T03:30:43.032Z'
