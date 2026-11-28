@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How fi-fore compares - fi-fore</title>
+  <meta name="description" content="A plain comparison of a spreadsheet, Empower, Monarch, YNAB, Actual Budget and fi-fore: what each does, what it costs, where your data lives. Checked on 27 November 2026." />
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 1100px; margin: 3rem auto; padding: 0 1rem; color: #1a1a1a; line-height: 1.6; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.3rem; margin: 2.25rem 0 0.75rem; }
+    p, ul { margin-bottom: 1rem; }
+    ul { padding-left: 1.25rem; }
+    .meta { color: #555; font-size: 0.95rem; }
+    .table-wrap { overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; min-width: 900px; font-size: 0.9rem; }
+    th, td { border: 1px solid #ddd; padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
+    thead th { background: #f4f6f8; }
+    tbody th { background: #fafafa; font-weight: 600; width: 11rem; }
+    th.us, td.us { background: #eef6ff; }
+    a { color: #1565c0; }
+    nav { margin-top: 3rem; font-size: 0.9rem; }
+    nav a { color: #555; }
+    #sources li { margin-bottom: 0.4rem; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <h1>How fi-fore compares</h1>
+  <p class="meta">Checked on 27 November 2026. Prices are in US dollars and change; the linked pages at the bottom are the authority.</p>
+  <p>
+    A spreadsheet, a subscription, and a free open-source app all solve part of
+    the same problem. This page lays out what each one does, using what the
+    products say about themselves, and says where fi-fore is the weaker choice.
+    We wrote it; read it with that in mind, and tell us if a cell is wrong.
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Spreadsheet</th>
+          <th>Empower (Mint closed in 2024)</th>
+          <th>Monarch</th>
+          <th>YNAB</th>
+          <th>Actual Budget</th>
+          <th class="us">fi-fore</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Looks forward or back</th>
+          <td>Whichever you build</td>
+          <td>Tracks spending and net worth; has a retirement planner</td>
+          <td>Budget and cash flow; Plus adds a forecast</td>
+          <td>Budgets the money you have now, month by month</td>
+          <td>This month's budget; an experimental balance forecast from schedules</td>
+          <td class="us">Forward first, on three horizons</td>
+        </tr>
+        <tr>
+          <th scope="row">Ratio on the forecast</th>
+          <td>If you build it</td>
+          <td>No built-in 50/30/20 that we found</td>
+          <td>No built-in 50/30/20 that we found</td>
+          <td>No built-in 50/30/20 that we found</td>
+          <td>No built-in 50/30/20 that we found</td>
+          <td class="us">Needs, wants, savings on the plan and the actuals, in every view</td>
+        </tr>
+        <tr>
+          <th scope="row">Reconciles transactions to the plan</th>
+          <td>By hand</td>
+          <td>Transactions go to categories, not to planned items</td>
+          <td>Transactions go to categories, not to planned items</td>
+          <td>Transactions go to budget categories</td>
+          <td>Schedules auto-match recurring transactions</td>
+          <td class="us">A weekly check-in links each transaction to a plan item or marks it unplanned</td>
+        </tr>
+        <tr>
+          <th scope="row">Scenarios</th>
+          <td>By hand</td>
+          <td>Retirement planning tools</td>
+          <td>Plus: forecast scenarios compared on one chart</td>
+          <td>None that we found</td>
+          <td>None that we found</td>
+          <td class="us">Yes: refinance, mortgage and similar what-ifs</td>
+        </tr>
+        <tr>
+          <th scope="row">Bank sync</th>
+          <td>CSV or typing</td>
+          <td>Links bank, card, loan and investment accounts</td>
+          <td>Plaid, Mastercard Data Connect and MX; 13,000+ institutions</td>
+          <td>Direct import at select banks in the US, Canada, UK and EU; file import elsewhere</td>
+          <td>Optional; providers you sign up with yourself (SimpleFIN Bridge in North America, others elsewhere); automatic sync is off by default</td>
+          <td class="us">SimpleFIN Bridge in the US with your own token, which you pay SimpleFIN for; or CSV import</td>
+        </tr>
+        <tr>
+          <th scope="row">Where your data lives</th>
+          <td>Your file</td>
+          <td>Empower's service</td>
+          <td>Monarch's service</td>
+          <td>YNAB's service, synced across devices</td>
+          <td>On your device; syncs through a server you can run yourself; end-to-end encryption is optional</td>
+          <td class="us">Your computer. The desktop app keeps no copy on fi-fore servers</td>
+        </tr>
+        <tr>
+          <th scope="row">Price</th>
+          <td>Your software, or free</td>
+          <td>Dashboard free; advisory services are paid and separate</td>
+          <td>$99.99/yr or $14.99/mo; Plus $199.99/yr</td>
+          <td>$109/yr or $14.99/mo; 34-day trial</td>
+          <td>Free; a hosted setup through a third party carries fees</td>
+          <td class="us">Free. You pay SimpleFIN directly if you use bank sync</td>
+        </tr>
+        <tr>
+          <th scope="row">Open source</th>
+          <td>Not applicable</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>Yes, source on GitHub</td>
+          <td class="us">Not yet. Opening the source under AGPL-3.0 is planned</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Where others do better</h2>
+  <ul>
+    <li><strong>Actual Budget</strong> is open source today, offers optional end-to-end encryption, and has been around far longer. If inspecting the code and a mature community matter most to you, it has both and fi-fore does not yet.</li>
+    <li><strong>Monarch</strong> and <strong>YNAB</strong> have mobile apps (iOS and Android) and a hosted service that works with no setup. Monarch connects through three data providers; fi-fore reaches banks through SimpleFIN or CSV only. fi-fore is a desktop app with no mobile app.</li>
+    <li><strong>Empower</strong> has a free dashboard that covers investment accounts and net worth. fi-fore's focus is the household's monthly plan, not an investment portfolio.</li>
+    <li><strong>A spreadsheet</strong> does anything you can build, costs nothing extra, and you already know how it works.</li>
+  </ul>
+
+  <h2>Where fi-fore is different</h2>
+  <ul>
+    <li>The plan comes first: every transaction is checked against the plan each week, instead of the plan being a budget you look at afterward.</li>
+    <li>The 50/30/20 split shows on the forecast, not only on what already happened.</li>
+    <li>Scenarios such as a refinance or a mortgage are built in, on your own data, on your own machine.</li>
+  </ul>
+
+  <h2>How we checked</h2>
+  <p>
+    Cells come from each product's own pricing, feature and help pages on the
+    date above, plus fi-fore's own product notes. "None that we found" means we
+    read the documentation and found no such feature; it can be wrong, and a
+    product may add one later. Mint is listed under Empower because Mint shut
+    down in 2024 and Empower is one of the free tools its users moved to.
+  </p>
+
+  <section id="sources">
+    <h2>Sources</h2>
+    <ul>
+      <li>Monarch pricing and platforms: <a href="https://www.monarch.com/pricing">monarch.com/pricing</a></li>
+      <li>Monarch Plus and forecasting: <a href="https://help.monarch.com/hc/en-us/articles/48349699981972-Monarch-Plus-Tier">Monarch Plus tier</a>, <a href="https://help.monarch.com/hc/en-us/articles/48344305092244-Forecasting-in-Monarch">Forecasting in Monarch</a></li>
+      <li>Monarch data providers: <a href="https://help.monarch.com/hc/en-us/articles/360048393352">Guide to connecting your accounts</a></li>
+      <li>YNAB pricing, trial and bank import: <a href="https://www.ynab.com/pricing">ynab.com/pricing</a></li>
+      <li>Actual Budget: <a href="https://actualbudget.org/">actualbudget.org</a> (local-first, optional end-to-end encryption, source on GitHub)</li>
+      <li>Actual Budget bank sync, providers and the encryption note: <a href="https://actualbudget.org/docs/advanced/bank-sync/">Connecting your bank</a></li>
+      <li>Empower free dashboard: <a href="https://www.empower.com/personal-investors/tools-template">empower.com personal dashboard</a></li>
+      <li>Mint shutdown: <a href="https://www.cnbc.com/select/empower-vs-mint/">CNBC Select, Empower vs Mint</a></li>
+    </ul>
+  </section>
+
+  <nav><a href="/">← Home</a> | <a href="/download.html">Download</a> | <a href="/changelog.html">Changelog</a></nav>
+</body>
+</html>
