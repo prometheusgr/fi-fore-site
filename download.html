@@ -34,6 +34,11 @@
     .error { color: #c00; }
     .beta-note { margin: 1.75rem 0 0.75rem; font-size: 0.9rem; color: #555; }
     .beta-note strong { color: #b45309; }
+    .unsigned-note { margin: 1.5rem 0 0; padding: 0.75rem 1rem; background: #fef3c7; border-radius: 6px; font-size: 0.9rem; color: #444; }
+    .verify { margin-top: 2rem; }
+    .verify h2 { font-size: 1.2rem; }
+    .verify pre { background: #f4f4f4; padding: 0.6rem 0.8rem; border-radius: 6px; overflow-x: auto; }
+    .hash { display: block; font-family: ui-monospace, monospace; font-size: 0.75rem; color: #555; word-break: break-all; }
     .badge-beta { background: #fef3c7; color: #b45309; font-size: 0.7rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 4px; margin-left: 0.4rem; }
 /* layout:css */
       .site-header { background: #fff; border-bottom: 1px solid #ddd; font-family: system-ui, sans-serif; }
@@ -72,6 +77,29 @@
   <p class="beta-note" id="beta-note" hidden><strong>BETA:</strong> the macOS and Linux downloads are not signed yet, so your system may warn before opening them.</p>
   <div class="buttons" id="beta-buttons"></div>
 
+  <p class="unsigned-note" id="unsigned-note">
+    <strong>Not code-signed yet.</strong> These installers are not code-signed, so Windows
+    SmartScreen may say &ldquo;unknown publisher&rdquo; and macOS Gatekeeper may say
+    &ldquo;unidentified developer.&rdquo; That warning is about the missing publisher
+    certificate, not a scan of the file. You can check the download yourself below.
+  </p>
+
+  <section class="verify" id="verify">
+    <h2>How to verify</h2>
+    <p>
+      Each release lists the SHA-256 of every installer in
+      <a id="sums-link" href="https://github.com/prometheusgr/fi-fore-site/releases">SHA256SUMS</a>,
+      signed with <a href="https://www.sigstore.dev/">Sigstore</a>
+      (<a id="bundle-link" href="https://github.com/prometheusgr/fi-fore-site/releases">SHA256SUMS.sigstore.json</a>).
+      Compare the hash of your download with its line in that file.
+    </p>
+    <p>Windows (PowerShell):</p>
+    <pre>Get-FileHash -Algorithm SHA256 .\fi-fore-X.Y.Z.exe</pre>
+    <p>macOS:</p>
+    <pre>shasum -a 256 fi-fore-X.Y.Z.dmg</pre>
+    <p>To also check that fi-fore&rsquo;s release build signed the list, install <a href="https://docs.sigstore.dev/cosign/system_config/installation/">cosign</a> and run the <code>cosign verify-blob</code> command shown under &ldquo;Verify this release&rdquo; in the release notes.</p>
+  </section>
+
   <script>
     const MANIFEST = '/releases/latest.json';
     const PLATFORM_MAP = [
@@ -94,6 +122,10 @@
         document.getElementById('version').textContent =
           'Latest: v' + release.version + ' — released ' +
           new Date(release.publishedAt).toLocaleDateString();
+
+        const base = 'https://github.com/prometheusgr/fi-fore-site/releases/download/' + release.tag + '/';
+        document.getElementById('sums-link').href = base + 'SHA256SUMS';
+        document.getElementById('bundle-link').href = base + 'SHA256SUMS.sigstore.json';
 
         const detectedOS = detectOS();
 
@@ -120,6 +152,12 @@
             '<span class="icon">' + icon + '</span>' +
             '<span><span class="label">' + label + '</span>' + (beta ? '<span class="badge-beta">BETA</span>' : '') + '<br><small>' + sub + '</small></span>' +
             '<span class="size">' + fmtSize(asset.size) + '</span>';
+          if (asset.sha256) {
+            const h = document.createElement('code');
+            h.className = 'hash';
+            h.textContent = 'SHA-256 ' + asset.sha256;
+            a.querySelector('small').after(h);
+          }
           if (beta) document.getElementById('beta-note').hidden = false;
           document.getElementById(beta ? 'beta-buttons' : 'buttons').appendChild(a);
         });
