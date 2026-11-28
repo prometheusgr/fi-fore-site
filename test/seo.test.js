@@ -10,7 +10,7 @@ const pages = fs.readdirSync(root).filter((f) => f.endsWith(".html") && f !== "4
 const read = (f) => fs.readFileSync(path.join(root, f), "utf8");
 const head = (f) => read(f).split("</head>")[0];
 const meta = (h, attr, name) => {
-  const m = h.match(new RegExp(`<meta\s+${attr}="${name}"\s+content="([^"]*)"`, "i"));
+  const m = h.match(new RegExp(`<meta[ ]+${attr}="${name}"[ ]+content="([^"]*)"`, "i"));
   return m && m[1];
 };
 const urlFor = (f) => (f === "index.html" ? `${SITE}/` : `${SITE}/${f}`);
