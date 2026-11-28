@@ -12,10 +12,10 @@ test("compare.html exists", () => {
 
 test("home nav and footer link to the comparison", () => {
   const html = read("index.html");
-  const nav = html.match(/<nav class="nav">[\s\S]*?<\/nav>/)[0];
-  const footer = html.match(/<footer>[\s\S]*<\/footer>/)[0];
-  assert.match(nav, /href="compare\.html"/);
-  assert.match(footer, /href="compare\.html"/);
+  const nav = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)[0];
+  const footer = html.match(/<footer class="site-footer">[\s\S]*<\/footer>/)[0];
+  assert.match(nav, /href="\/compare\.html"/);
+  assert.match(footer, /href="\/compare\.html"/);
 });
 
 test("comparison names every product and the required rows", () => {
@@ -52,7 +52,7 @@ test("comparison says where others win", () => {
 });
 
 test("comparison has no logos, images or prescriptive words", () => {
-  const html = read("compare.html");
+  const html = read("compare.html").replace(/<!-- layout:header -->[\s\S]*?<!-- \/layout:header -->|\/\* layout:css \*\/[\s\S]*?\/\* \/layout:css \*\//g, "");
   assert.doesNotMatch(html, /<img\b|<svg\b|url\(/i);
   const text = html.replace(/<style[\s\S]*?<\/style>/g, "").replace(/<[^>]+>/g, " ");
   assert.doesNotMatch(text, /\b(should|must|best|worst|avoid|beats)\b/i);

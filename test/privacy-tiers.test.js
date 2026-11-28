@@ -12,7 +12,7 @@ test("index has a privacy section", () => {
 
 test("nav links to the privacy section", () => {
   const nav = html.match(/<nav[\s\S]*?<\/nav>/)[0];
-  assert.ok(nav.includes('href="#privacy"'));
+  assert.ok(nav.includes('href="/index.html#privacy"'));
 });
 
 test("two-row tier table names both tiers", () => {
