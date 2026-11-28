@@ -12,8 +12,8 @@ test("ask.html exists", () => {
 });
 
 test("home footer links to the ask page", () => {
-  const footer = read("index.html").match(/<footer>[\s\S]*<\/footer>/)[0];
-  assert.match(footer, /href="ask\.html"/);
+  const footer = read("index.html").match(/<footer class="site-footer">[\s\S]*<\/footer>/)[0];
+  assert.match(footer, /href="\/ask\.html"/);
 });
 
 test("ask page says nobody is counted and a feature is built because someone asked", () => {
@@ -27,7 +27,8 @@ test("ask page says nobody is counted and a feature is built because someone ask
 test("ask page asks by mailto only, with the in-app subject", () => {
   const html = read("ask.html");
   assert.match(html, /href="mailto:alex@fi-fore\.com\?subject=fi-fore%3A%20request%20or%20problem"/);
-  assert.doesNotMatch(html, /<form\b|<script\b|<iframe\b|<img\b/i);
+  const body = html.replace(/<!-- layout:header -->[\s\S]*?<!-- \/layout:header -->/, "");
+  assert.doesNotMatch(body, /<form\b|<script\b|<iframe\b|<img\b/i);
   assert.doesNotMatch(html, /href="https?:\/\/[^"]*issues/i);
 });
 

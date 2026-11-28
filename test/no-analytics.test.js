@@ -45,7 +45,7 @@ for (const page of pages) {
 
 test("index footer says the site has no trackers", () => {
   const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
-  const footer = html.match(/<footer>[\s\S]*<\/footer>/)[0].replace(/\s+/g, " ");
+  const footer = html.match(/<footer class="site-footer">[\s\S]*<\/footer>/)[0].replace(/\s+/g, " ");
   assert.ok(footer.includes("This site uses no trackers, cookies or analytics."));
   assert.ok(footer.includes("Downloads are hosted on GitHub, which counts them. We don't read the count."));
   assert.ok(footer.includes("GitHub Pages keeps its own server logs."));

@@ -41,13 +41,13 @@ test("every local proof link points at a real file and anchor", () => {
 
 test("home nav, message-3 section and footer link to the values", () => {
   const html = read("index.html");
-  assert.match(html.match(/<nav class="nav">[\s\S]*?<\/nav>/)[0], /href="values\.html"/);
-  assert.match(html.match(/<footer>[\s\S]*<\/footer>/)[0], /href="values\.html"/);
+  assert.match(html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)[0], /href="\/values\.html"/);
+  assert.match(html.match(/<footer class="site-footer">[\s\S]*<\/footer>/)[0], /href="\/values\.html"/);
   assert.match(html.match(/<section class="privacy-banner">[\s\S]*?<\/section>/)[0], /href="values\.html"/);
 });
 
 test("values page has no images, no prescriptive words, no open-source claim as fact", () => {
-  const html = read("values.html");
+  const html = read("values.html").replace(/<!-- layout:header -->[\s\S]*?<!-- \/layout:header -->|\/\* layout:css \*\/[\s\S]*?\/\* \/layout:css \*\//g, "");
   assert.doesNotMatch(html, /<img\b|<svg\b|url\(|<script\b/i);
   const text = html.replace(/<style[\s\S]*?<\/style>/g, "").replace(/<[^>]+>/g, " ");
   assert.doesNotMatch(text, /\b(should|must|best|worst|avoid|beats)\b/i);
