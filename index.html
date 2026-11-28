@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>fi-fore - Your money plan for tomorrow, checked against today.</title>
-    <meta name="description" content="Your money plan for tomorrow, checked against today. Needs, wants, savings: your 50/30/20 split, on the plan and the actuals." />
+    <meta name="description" content="Your plan, checked every week: every transaction reconciled to it, with your 50/30/20 split on the plan and the actuals. On your own computer, and free." />
     <link rel="canonical" href="https://fi-fore.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="fi-fore" />
     <meta property="og:title" content="fi-fore - Your money plan for tomorrow, checked against today." />
-    <meta property="og:description" content="Your money plan for tomorrow, checked against today. Needs, wants, savings: your 50/30/20 split, on the plan and the actuals." />
+    <meta property="og:description" content="Your plan, checked every week: every transaction reconciled to it, with your 50/30/20 split on the plan and the actuals. On your own computer, and free." />
     <meta property="og:url" content="https://fi-fore.com/" />
     <meta property="og:image" content="https://fi-fore.com/fi-fore_icon_1024x1024.png" />
     <meta name="twitter:card" content="summary" />
@@ -26,16 +26,16 @@
           Cantarell, sans-serif;
         line-height: 1.6;
         color: #1a1a1a;
+        background: #fff;
       }
 
-
       .hero {
-        min-height: 90vh;
+        min-height: 80vh;
         display: flex;
         align-items: center;
         background: linear-gradient(135deg, #1e88e5 0%, #43a047 100%);
         color: white;
-        padding: 6rem 2rem 4rem;
+        padding: 5rem 2rem 4rem;
         position: relative;
         overflow: hidden;
       }
@@ -64,14 +64,14 @@
       }
 
       .hero h1 {
-        font-size: 3.5rem;
+        font-size: 3.25rem;
         font-weight: 800;
         margin-bottom: 1.5rem;
         line-height: 1.2;
       }
 
       .hero .subheadline {
-        font-size: 1.4rem;
+        font-size: 1.35rem;
         max-width: 800px;
         margin-bottom: 2.5rem;
         opacity: 0.95;
@@ -87,7 +87,6 @@
       }
 
       .logo-container {
-        position: relative;
         width: 120px;
         height: 120px;
         flex-shrink: 0;
@@ -96,11 +95,6 @@
       .logo-bg {
         width: 100%;
         height: 100%;
-        transition: transform 0.6s ease;
-      }
-
-      .logo-container:hover .logo-bg {
-        transform: rotate(360deg);
       }
 
       .brand-name {
@@ -137,7 +131,7 @@
 
       .btn-primary {
         background: white;
-        color: #1e88e5;
+        color: #1565c0;
       }
 
       .btn-primary:hover {
@@ -159,8 +153,12 @@
         padding: 5rem 2rem;
       }
 
+      .section-alt {
+        background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+      }
+
       .section-container {
-        max-width: 1200px;
+        max-width: 1000px;
         margin: 0 auto;
       }
 
@@ -169,127 +167,158 @@
         font-weight: 700;
         text-align: center;
         margin-bottom: 1rem;
-        background: linear-gradient(135deg, #1e88e5 0%, #43a047 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #1565c0;
       }
 
       .section-subtitle {
         text-align: center;
-        color: #666;
+        color: #555;
         font-size: 1.2rem;
-        margin-bottom: 4rem;
+        max-width: 760px;
+        margin: 0 auto 3rem;
       }
 
-      .jobs-grid {
+      .steps {
+        list-style: none;
+        counter-reset: step;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-bottom: 4rem;
+        gap: 1.25rem;
       }
 
-      .job-card {
+      .steps li {
+        counter-increment: step;
         background: white;
-        padding: 2rem;
+        padding: 1.5rem 1.5rem 1.5rem 4.5rem;
         border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        transition:
-          transform 0.3s,
-          box-shadow 0.3s;
-        border-top: 4px solid transparent;
-        background-clip: padding-box;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
         position: relative;
       }
 
-      .job-card::before {
-        content: "";
+      .steps li::before {
+        content: counter(step);
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(135deg, #1e88e5 0%, #43a047 100%);
-        border-radius: 12px 12px 0 0;
-      }
-
-      .job-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-      }
-
-      .job-card h3 {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
-        color: #1a1a1a;
-      }
-
-      .job-card p {
-        color: #555;
-        line-height: 1.8;
-      }
-
-      .features-section {
-        background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
-      }
-
-      .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-      }
-
-      .feature-card {
-        background: white;
-        padding: 2rem;
-        border-radius: 12px;
+        left: 1.5rem;
+        top: 1.4rem;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background: #1565c0;
+        color: white;
+        font-weight: 700;
         text-align: center;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-        transition: transform 0.3s;
+        line-height: 2rem;
       }
 
-      .feature-card:hover {
-        transform: translateY(-5px);
+      .steps h3,
+      .bucket h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.4rem;
       }
 
-      .feature-icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
+      .steps p,
+      .bucket p,
+      .section-note {
+        color: #444;
       }
 
-      .feature-card h3 {
-        font-size: 1.3rem;
-        margin-bottom: 0.5rem;
-        color: #1a1a1a;
-      }
-
-      .feature-card p {
-        color: #666;
-        line-height: 1.6;
+      .strip {
+        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
         font-size: 0.95rem;
+        background: #f4f6f8;
+        padding: 0.1rem 0.4rem;
+        border-radius: 4px;
+      }
+
+      .section-note {
+        margin-top: 2rem;
+        text-align: center;
+      }
+
+      .buckets {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        margin-bottom: 2rem;
+      }
+
+      .bucket {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      }
+
+      .bucket .share {
+        font-size: 2.25rem;
+        font-weight: 800;
+        color: #1565c0;
+        line-height: 1.1;
+      }
+
+      .ratio-notes p {
+        margin-bottom: 1rem;
+        color: #444;
       }
 
       .privacy-banner {
         background: linear-gradient(135deg, #1e88e5 0%, #43a047 100%);
         color: white;
         text-align: center;
-        padding: 3rem 2rem;
+        padding: 4rem 2rem;
       }
 
       .privacy-banner h2 {
-        font-size: 2rem;
+        font-size: 2.25rem;
         margin-bottom: 1rem;
       }
 
       .privacy-banner p {
         font-size: 1.2rem;
         max-width: 800px;
-        margin: 0 auto 2rem;
+        margin: 0 auto 1.25rem;
         opacity: 0.95;
       }
 
+      .privacy-banner a:not(.btn) {
+        color: white;
+      }
+
+      .privacy-banner .btn {
+        margin-top: 1rem;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+      }
+
+      .tier-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+
+      .tier-table th,
+      .tier-table td {
+        border: 1px solid #ddd;
+        padding: 0.75rem;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .tier-table thead th {
+        background: #f4f6f8;
+      }
+
+      .tier-notes p {
+        margin-bottom: 1rem;
+        color: #444;
+      }
 
       @media (max-width: 768px) {
+        .hero {
+          padding: 4rem 1rem 3rem;
+        }
+
         .brand-section {
           flex-direction: column;
           text-align: center;
@@ -297,8 +326,8 @@
         }
 
         .logo-container {
-          width: 100px;
-          height: 100px;
+          width: 96px;
+          height: 96px;
         }
 
         .brand-name {
@@ -310,21 +339,32 @@
         }
 
         .hero h1 {
-          font-size: 2.5rem;
+          font-size: 2.2rem;
         }
 
         .hero .subheadline {
           font-size: 1.1rem;
         }
 
-
-        .section-title {
-          font-size: 2rem;
+        .section,
+        .privacy-banner {
+          padding: 3rem 1rem;
         }
 
-        .jobs-grid,
-        .features-grid {
+        .section-title {
+          font-size: 1.9rem;
+        }
+
+        .buckets {
           grid-template-columns: 1fr;
+        }
+
+        .steps li {
+          padding: 1.25rem 1rem 1.25rem 3.75rem;
+        }
+
+        .steps li::before {
+          left: 1rem;
         }
       }
 /* layout:css */
@@ -366,158 +406,139 @@
           </div>
           <div>
             <div class="brand-name">fi-fore</div>
-            <div class="brand-tagline">Needs, wants, savings: your 50/30/20 split, on the plan and the actuals.</div>
+            <div class="brand-tagline">Your money plan for tomorrow, checked against today.</div>
           </div>
         </div>
-        <h1>Your money plan for tomorrow, checked against today.</h1>
+        <h1>Your plan, checked every week. Your ratio, on the future too.</h1>
         <p class="subheadline">
-          When financial decisions loom and spreadsheets fail, fi-fore helps you
-          see the full picture: reconcile what happened, understand what's
-          happening, and plan what's next—with your data kept in your own
-          database on your own computer.
+          fi-fore reconciles every transaction to a forward plan, with your
+          50/30/20 split of needs, wants and savings on both the plan and the
+          actuals, months ahead. It runs on your own computer, and it is free.
         </p>
         <div class="cta-buttons">
-          <a href="download.html" class="btn btn-primary">Download Now</a>
-          <a href="#features" class="btn btn-secondary">Learn More</a>
+          <a href="download.html" class="btn btn-primary">Download fi-fore</a>
+          <a href="#weekly-check-in" class="btn btn-secondary">See the weekly check-in</a>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section id="weekly-check-in" class="section section-alt">
       <div class="section-container">
-        <h2 class="section-title">Built for Real Financial Moments</h2>
+        <h2 class="section-title">Your plan, checked every week</h2>
         <p class="section-subtitle">
-          fi-fore helps you tackle the jobs that matter most
+          A budget tells you what you spent; a forecast tells you what your
+          balance will be. fi-fore asks one thing about each charge: was it
+          planned, and is the plan still true?
         </p>
 
-        <div class="jobs-grid">
-          <div class="job-card">
-            <h3>When you're paid and need to know if you're on track...</h3>
+        <ol class="steps">
+          <li>
+            <h3>New transactions come in</h3>
             <p>
-              See your actual spending next to your forecast. Match transactions
-              to your budget, spot variances as soon as they post, and stay
-              ahead without manual calculations.
+              From your bank through SimpleFIN Bridge, at most once a day, or
+              from a CSV file your bank exports. Rows already stored are flagged
+              as duplicates before you import.
             </p>
-          </div>
+          </li>
+          <li>
+            <h3>Days says where you stand</h3>
+            <p>
+              The check-in strip at the top of Days reads like
+              <span class="strip">Last reconciled 7 days ago &middot; 4 new &middot; 2 matched to your plan</span>.
+              &ldquo;To look at&rdquo; takes you straight to the charges that
+              need you.
+            </p>
+          </li>
+          <li>
+            <h3>Each charge is matched to the plan</h3>
+            <p>
+              fi-fore suggests the plan item each transaction belongs to, scored
+              by amount, category and description. Confirm them one at a time,
+              or the confident ones together.
+            </p>
+          </li>
+          <li>
+            <h3>A charge that wasn&rsquo;t planned joins the plan</h3>
+            <p>
+              Create Forecast puts it in the plan with the amount filled in and
+              links the charge to it. The ratio moves with it.
+            </p>
+          </li>
+        </ol>
 
-          <div class="job-card">
-            <h3>
-              When statements arrive and reconciliation feels like homework...
-            </h3>
-            <p>
-              Link this week's transactions to your plan in a few minutes. fi-fore
-              suggests matches between your forecast and what actually posted,
-              scored by amount, category and description, and you accept them one
-              at a time or accept the confident ones together. Hierarchical categories keep everything organized.
-            </p>
-          </div>
+        <p class="section-note">
+          Days holds this month&rsquo;s transactions, each reconciled to its
+          plan item. Month sets the plan against what happened, in aggregate.
+          To walk through it on made-up data first, open the sample household
+          on first run or under Setup.
+        </p>
+      </div>
+    </section>
 
-          <div class="job-card">
-            <h3>
-              When you need to understand where the money actually goes...
-            </h3>
-            <p>
-              Drill into spending patterns across days, months, and years. Track
-              budget rules (like 50/30/20), analyze credit spending separately,
-              and identify trends before they become problems.
-            </p>
-          </div>
+    <section id="ratio" class="section">
+      <div class="section-container">
+        <h2 class="section-title">Your ratio, on the future too</h2>
+        <p class="section-subtitle">
+          Needs, wants, savings: your 50/30/20 split, on the plan and the
+          actuals. It measures balance, not amount, so it works at any income.
+        </p>
 
-          <div class="job-card">
-            <h3>When organizing finances across multiple accounts...</h3>
-            <p>
-              See all your accounts—checking, credit, investments—in one view.
-              Project balances forward, track statement reconciliations, and
-              maintain a complete financial picture.
-            </p>
+        <div class="buckets">
+          <div class="bucket">
+            <div class="share">50%</div>
+            <h3>Needs</h3>
+            <p>What you need to live: rent, food, utilities, gas.</p>
           </div>
+          <div class="bucket">
+            <div class="share">30%</div>
+            <h3>Wants</h3>
+            <p>What you choose: streaming, coffee, concerts, vacations.</p>
+          </div>
+          <div class="bucket">
+            <div class="share">20%</div>
+            <h3>Savings</h3>
+            <p>The future: retirement, brokerage, an emergency fund.</p>
+          </div>
+        </div>
 
-          <div class="job-card">
-            <h3>When importing bank data and dreading duplicate cleanup...</h3>
-            <p>
-              Import CSV files; transactions already stored are flagged as
-              duplicates in the preview. Preview and check rows before
-              import, and categorize repeat merchants with rules you create.
-            </p>
-          </div>
-
-          <div class="job-card">
-            <h3>When privacy matters more than convenience...</h3>
-            <p>
-              In the desktop app, your data lives in a database on your own
-              computer, and fi-fore keeps no copy on its servers. fi-fore never
-              sees your bank login. Bank sync goes through SimpleFIN Bridge, a
-              separate service you sign up for and pay yourself, which handles
-              the bank connection and delivers transactions to your own
-              database. The desktop app has no subscription.
-            </p>
-          </div>
+        <div class="ratio-notes">
+          <p>
+            The Ratio card on Home and on Days shows Forecast, Current and the
+            50/30/20 Target side by side for the month you are looking at. The
+            Forecast column comes from your plan, so a month&rsquo;s split is
+            there before its charges post.
+          </p>
+          <p>
+            Each figure says how it adds up: open a bucket to see its
+            categories, largest first, each linked to its transactions or plan
+            items. fi-fore states the measure, the standard and the gap. What to
+            do about it is yours to decide.
+          </p>
         </div>
       </div>
     </section>
 
-    <section id="features" class="section features-section">
+    <section class="privacy-banner">
       <div class="section-container">
-        <h2 class="section-title">Powerful Features</h2>
-        <p class="section-subtitle">
-          Everything you need for complete financial clarity
+        <h2>Your machine, your database, free</h2>
+        <p>
+          The desktop app keeps your data in a database on your own computer,
+          with no copy on fi-fore servers. No fi-fore account, no usage
+          telemetry. Backup &amp; Restore saves the whole database as one file
+          you can take anywhere.
         </p>
-
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">📊</div>
-            <h3>Three Time Perspectives</h3>
-            <p>
-              <strong>Days:</strong> Today's dashboard with reconciliation<br />
-              <strong>Months:</strong> Historical trends and forecasts
-              unified<br />
-              <strong>Years:</strong> Net worth projected 5, 10 or 20 years out from your recurring items
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <h3>Smart Reconciliation</h3>
-            <p>
-              Suggested matches between forecasts and transactions, each with a
-              confidence score, and hierarchical category support
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">📁</div>
-            <h3>Hierarchical Categories</h3>
-            <p>
-              Organize spending your way with nested parent and child
-              categories
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">🔒</div>
-            <h3>Privacy First</h3>
-            <p>
-              The desktop app stores your data on your own computer, with no
-              copy on fi-fore servers. fi-fore never sees your bank login;
-              SimpleFIN Bridge handles the bank connection
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">💾</div>
-            <h3>Data Safety</h3>
-            <p>
-              Save a backup file and restore it from the app; database upgrades
-              run automatically when you update
-            </p>
-          </div>
-        </div>
+        <p>
+          The desktop app has no subscription and no paid feature.
+          <a href="values.html">What we won&rsquo;t trade</a>.
+        </p>
+        <a href="download.html" class="btn btn-primary">Download fi-fore</a>
       </div>
     </section>
 
     <section id="privacy" class="section">
       <div class="section-container">
         <h2 class="section-title">Who can read your money, and for how long</h2>
+        <div class="table-wrap">
         <table class="tier-table">
           <thead>
             <tr>
@@ -549,6 +570,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
         <div class="tier-notes">
           <p>
             Desktop and self-host cost some convenience: you run it and back it
@@ -566,20 +588,6 @@
             install ID, and you can turn it off in Setup.
           </p>
         </div>
-      </div>
-    </section>
-
-    <section class="privacy-banner">
-      <div class="section-container">
-        <h2>Your Data, Your Computer, Your Privacy</h2>
-        <p>
-          The desktop app keeps your data on your own computer, with no copy on
-          fi-fore servers. fi-fore never sees your bank login; SimpleFIN
-          Bridge, a separate service you pay yourself, handles the bank
-          connection. The desktop app has no subscription.
-          <a href="values.html">What we won&rsquo;t trade</a>.
-        </p>
-        <a href="download.html" class="btn btn-primary">Download fi-fore</a>
       </div>
     </section>
 <!-- layout:footer -->
