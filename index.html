@@ -381,6 +381,7 @@
         <div class="nav-logo">fi-fore</div>
         <div class="nav-links">
           <a href="#features">Features</a>
+          <a href="#privacy">Privacy</a>
           <a href="download.html">Download</a>
           <a href="changelog.html">Changelog</a>
         </div>
@@ -540,6 +541,60 @@
               run automatically when you update
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy" class="section">
+      <div class="section-container">
+        <h2 class="section-title">Who can read your money, and for how long</h2>
+        <table class="tier-table">
+          <thead>
+            <tr>
+              <th scope="col">Where it runs</th>
+              <th scope="col">Who can read it</th>
+              <th scope="col">For how long</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Desktop / self-host</th>
+              <td>
+                <strong>Can't read it.</strong> Only you, on hardware you
+                own. No fi-fore account, no usage telemetry, no AI vendor in
+                the path.
+              </td>
+              <td>
+                As long as you keep the file. There is nothing to delete at
+                fi-fore, because there is no copy.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Hosted (not available yet)</th>
+              <td>
+                <strong>Won't read it.</strong> We run the server, so we
+                could; policy and controls stop us, not math.
+              </td>
+              <td>Until you delete the household, and no longer.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="tier-notes">
+          <p>
+            Desktop and self-host cost some convenience: you run it and back it
+            up. Hosted trades some privacy for convenience: we run it.
+          </p>
+          <p>
+            Bank sync goes through SimpleFIN Bridge with your own token, and
+            you pay SimpleFIN directly. SimpleFIN sees your transactions;
+            fi-fore never sees your bank login. CSV import has no third party
+            at all.
+          </p>
+          <p>
+            The desktop app checks fi-fore&rsquo;s public release page for a
+            newer version. That request carries no household data and no
+            install ID, and you can turn it off in Setup.
+          </p>
         </div>
       </div>
     </section>
